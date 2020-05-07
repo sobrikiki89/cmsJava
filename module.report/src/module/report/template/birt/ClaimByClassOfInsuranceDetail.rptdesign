@@ -1,0 +1,1487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.7.0.v201706222054</property>
+    <property name="units">in</property>
+    <method name="initialize"><![CDATA[rowsReturned=0;]]></method>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">84</property>
+    <parameters>
+        <scalar-parameter name="userCompany" id="402">
+            <text-property name="promptText">User Company</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">multi-value</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="companies" id="172">
+            <text-property name="promptText">Company</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">decimal</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">multi-value</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">true</property>
+            <structure name="format">
+                <property name="category">Fixed</property>
+                <property name="pattern">###0{RoundingMode=HALF_UP}</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="fromLossDate" id="173">
+            <text-property name="promptText">From Loss Date</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">dateTime</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Custom</property>
+                <property name="pattern">dd/MM/yyyy HH:mm:ss</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="toLossDate" id="174">
+            <text-property name="promptText">To Loss Date</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">dateTime</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Custom</property>
+                <property name="pattern">dd/MM/yyyy HH:mm:ss</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="REPORT_DATETIME" id="196">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="REPORT_CREATOR" id="197">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dispCompanies" id="390">
+            <text-property name="promptText">dispCompanies</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dispFromLossDate" id="369">
+            <text-property name="promptText">dispFromLossDate</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dispToLossDate" id="370">
+            <text-property name="promptText">dispToLossDate</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="showCompany" id="585">
+            <text-property name="promptText">showCompany</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">boolean</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">False</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">check-box</property>
+            <structure name="format"/>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Postgres Data Source" id="20">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">org.postgresql.Driver</property>
+            <property name="odaURL">jdbc:postgresql://localhost:5432/gcms</property>
+            <property name="odaUser">gcms</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">Z2Ntcw==</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Detail" id="685">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">company_id</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">company_id</text-property>
+                    <text-property name="heading">company_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">company_code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">company_code</text-property>
+                    <text-property name="heading">company_code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">class_category</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">class_category</text-property>
+                    <text-property name="heading">class_category</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">claim_id</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">claim_id</text-property>
+                    <text-property name="heading">claim_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">est_lost_amt</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">est_lost_amt</text-property>
+                    <text-property name="heading">est_lost_amt</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">approval_amt</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">approval_amt</text-property>
+                    <text-property name="heading">approval_amt</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">incurred_amt</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">incurred_amt</text-property>
+                    <text-property name="heading">incurred_amt</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">company_id</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">company_code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">class_category</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">claim_id</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">est_lost_amt</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">approval_amt</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">incurred_amt</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <method name="beforeOpen"><![CDATA[importPackage( Packages.java.text );
+var sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", reportContext.getLocale());
+
+var qrStr=" (claim.deleted IS NULL OR claim.deleted = false)";
+
+//User Company
+var userCompany = reportContext.getParameterValue("userCompany");
+if( (userCompany != null &amp;&amp; userCompany.length > 0) ){
+	var userCompanyCodes = "";
+	
+	for(var i = 0; i < userCompany.length; i++) {
+		userCompanyCodes += "'" + userCompany[i] + "',";
+	}
+
+	if(userCompanyCodes != "") {
+		userCompanyCodes = userCompanyCodes.substring(0, userCompanyCodes.length - 1);
+	}
+
+	if(qrStr != "") {
+		qrStr += " AND";
+	}
+	qrStr += " company.code IN (" + userCompanyCodes + ")";
+}
+
+// Companies
+var companies = reportContext.getParameterValue("companies");
+if( (companies != null &amp;&amp; companies.length > 0) ){
+	var companyIds = "";
+	
+	for(var i = 0; i < companies.length; i++) {
+		companyIds += companies[i] + ",";
+	}
+
+	if(companyIds != "") {
+		companyIds = companyIds.substring(0, companyIds.length - 1);
+	}
+	
+	if(qrStr != "") {
+		qrStr += " AND";
+	}
+	
+	qrStr += " company.id IN (" + companyIds + ")";
+}
+
+// From Loss Date, To Loss Date
+var fromLossDate = reportContext.getParameterValue("fromLossDate");
+var toLossDate = reportContext.getParameterValue("toLossDate");
+if( (fromLossDate != null &amp;&amp; fromLossDate.value != "" &amp;&amp; toLossDate != null &amp;&amp; toLossDate.value != "") ){
+	if(qrStr != "") {
+		qrStr += " AND";
+	}
+
+	qrStr += " claim.loss_date between to_timestamp('" + sdf.format( fromLossDate ) + "', 'DD-MM-YYYY HH24:MI:SS') and to_timestamp('" + sdf.format( toLossDate ) + "', 'DD-MM-YYYY HH24:MI:SS')";
+}
+else if( (fromLossDate != null &amp;&amp; fromLossDate.value != "" &amp;&amp; (toLossDate == null || toLossDate.value == "") ) ){
+	if(qrStr != "") {
+		qrStr += " AND";
+	}
+
+	qrStr += " claim.loss_date >= to_timestamp('" + sdf.format( fromLossDate ) + "', 'DD-MM-YYYY HH24:MI:SS')";
+}
+else if( ( (fromLossDate == null || fromLossDate.value == "") &amp;&amp; toLossDate != null &amp;&amp; toLossDate.value != "" ) ){
+	if(qrStr != "") {
+		qrStr += " AND";
+	}
+
+	qrStr += " claim.loss_date <= to_timestamp('" + sdf.format( toLossDate ) + "', 'DD-MM-YYYY HH24:MI:SS')";
+}
+
+if (qrStr != "") {
+	qrStr = " WHERE " + qrStr;
+}
+
+this.queryText = this.queryText.replace("extraCond", qrStr);]]></method>
+            <property name="dataSource">Postgres Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">company_id</property>
+                    <property name="nativeName">company_id</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">company_code</property>
+                    <property name="nativeName">company_code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">class_category</property>
+                    <property name="nativeName">class_category</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">claim_id</property>
+                    <property name="nativeName">claim_id</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">est_lost_amt</property>
+                    <property name="nativeName">est_lost_amt</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">approval_amt</property>
+                    <property name="nativeName">approval_amt</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">incurred_amt</property>
+                    <property name="nativeName">incurred_amt</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT company.id AS company_id, company.code AS company_code, 
+        initCap(insurance_class_category.name) as class_category,
+        claim.id AS claim_id,
+        case    when claim.status IN ('CPAID','OPN','PDOC','PADJ','PACC','POFR','PPYMT') then est_lost_amt 
+                else 0.00
+        end as est_lost_amt, 
+        case    when claim.status = 'CPAID' then approval_amt 
+                else 0.00
+        end as approval_amt, 
+        case    when claim.status = 'CPAID' then approval_amt
+                when CLAIM.STATUS IN ('OPN','PDOC','PADJ','PACC','POFR','PPYMT') then COALESCE(reserve_amount,0.00)
+                else 0.00
+        end as incurred_amt
+FROM claim 
+        INNER JOIN policy ON claim.policy_id = policy.id
+        INNER JOIN company ON company.id = policy.company_id
+        INNER JOIN insurance_class ON policy.insurance_class_code = insurance_class.code
+        INNER JOIN insurance_class_category ON insurance_class.category = insurance_class_category.code
+extraCond
+ORDER BY company.code, approval_amt desc;]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>company_id</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>company_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>company_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>company_code</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>company_code</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>company_code</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>class_category</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>2147483647</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Unknown</design:nullability>
+            <design:uiHints>
+              <design:displayName>class_category</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>class_category</design:label>
+            <design:formattingHints>
+              <design:displaySize>2147483647</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>claim_id</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>claim_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>claim_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>est_lost_amt</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Unknown</design:nullability>
+            <design:uiHints>
+              <design:displayName>est_lost_amt</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>est_lost_amt</design:label>
+            <design:formattingHints>
+              <design:displaySize>131089</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>approval_amt</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Unknown</design:nullability>
+            <design:uiHints>
+              <design:displayName>approval_amt</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>approval_amt</design:label>
+            <design:formattingHints>
+              <design:displaySize>131089</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>incurred_amt</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Unknown</design:nullability>
+            <design:uiHints>
+              <design:displayName>incurred_amt</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>incurred_amt</design:label>
+            <design:formattingHints>
+              <design:displaySize>131089</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <cubes>
+        <tabular-cube name="DetailCube" id="686">
+            <property name="dimensions">
+                <tabular-dimension name="ClassCategory" id="689">
+                    <property name="defaultHierarchy">NewTabularHierarchy</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy" id="690">
+                            <property name="levels">
+                                <tabular-level name="Class Category" id="691">
+                                    <property name="dataType">string</property>
+                                    <property name="levelType">dynamic</property>
+                                    <property name="columnName">class_category</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+                <tabular-dimension name="Company Code" id="695">
+                    <property name="defaultHierarchy">NewTabularHierarchy1</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy1" id="696">
+                            <property name="levels">
+                                <tabular-level name="company_code" id="697">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">company_code</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+            </property>
+            <property name="measureGroups">
+                <tabular-measure-group name="Summary Field" id="687">
+                    <property name="measures">
+                        <tabular-measure name="No of Cases" id="688">
+                            <property name="function">count</property>
+                            <property name="isCalculated">false</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["claim_id"]</expression>
+                            <property name="dataType">integer</property>
+                            <property name="isVisible">true</property>
+                        </tabular-measure>
+                        <tabular-measure name="Estimated Amount (RM)" id="692">
+                            <property name="function">sum</property>
+                            <property name="isCalculated">false</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["est_lost_amt"]</expression>
+                            <property name="dataType">decimal</property>
+                            <property name="isVisible">true</property>
+                        </tabular-measure>
+                        <tabular-measure name="Paid Amount (RM)" id="693">
+                            <property name="function">sum</property>
+                            <property name="isCalculated">false</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["approval_amt"]</expression>
+                            <property name="dataType">decimal</property>
+                            <property name="isVisible">true</property>
+                        </tabular-measure>
+                        <tabular-measure name="Incurred Amount(RM)" id="694">
+                            <property name="function">sum</property>
+                            <property name="isCalculated">false</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["incurred_amt"]</expression>
+                            <property name="dataType">decimal</property>
+                            <property name="isVisible">true</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+            </property>
+            <property name="dataSet">Detail</property>
+        </tabular-cube>
+    </cubes>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="orientation">landscape</property>
+            <property name="height">8.5in</property>
+            <property name="width">25in</property>
+            <property name="showHeaderOnFirst">false</property>
+            <property name="showFooterOnLast">false</property>
+            <property name="headerHeight">0.5in</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="464">
+            <column id="465"/>
+            <row id="599">
+                <property name="borderBottomStyle">none</property>
+                <property name="borderLeftStyle">none</property>
+                <property name="borderRightStyle">none</property>
+                <property name="borderTopStyle">none</property>
+                <cell id="600">
+                    <text-data id="462">
+                        <property name="fontSize">9pt</property>
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <expression name="valueExpr">"Report By : " + params["REPORT_CREATOR"].value</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+            </row>
+            <row id="601">
+                <property name="borderBottomStyle">none</property>
+                <property name="borderLeftStyle">none</property>
+                <property name="borderRightStyle">none</property>
+                <property name="borderTopStyle">none</property>
+                <cell id="602">
+                    <text-data id="463">
+                        <property name="fontSize">9pt</property>
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <expression name="valueExpr">"Report Date : " + params["REPORT_DATETIME"].value</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+            </row>
+            <row id="466">
+                <property name="borderBottomStyle">none</property>
+                <property name="borderLeftStyle">none</property>
+                <property name="borderRightStyle">none</property>
+                <property name="borderTopStyle">none</property>
+                <cell id="467">
+                    <label id="472">
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <property name="textAlign">center</property>
+                        <text-property name="text">CLAIM BY CLASS OF INSURANCE (DETAIL)</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="468">
+                <list-property name="visibility">
+                    <structure>
+                        <property name="format">all</property>
+                        <expression name="valueExpr" type="javascript">params["dispFromLossDate"].value == null &amp;&amp; params["dispToLossDate"].value == null</expression>
+                    </structure>
+                </list-property>
+                <cell id="469">
+                    <text-data id="473">
+                        <list-property name="visibility">
+                            <structure>
+                                <property name="format">all</property>
+                                <expression name="valueExpr" type="javascript">params["dispFromLossDate"].value == null</expression>
+                            </structure>
+                        </list-property>
+                        <expression name="valueExpr">"Loss date : " + params["dispFromLossDate"].value + ( params["dispToLossDate"].value != null ? " to " + params["dispToLossDate"].value : "" )</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+            </row>
+            <row id="470">
+                <cell id="471">
+                    <text-data id="757">
+                        <list-property name="visibility">
+                            <structure>
+                                <property name="format">all</property>
+                                <expression name="valueExpr" type="javascript">params["dispCompanies"].value == null</expression>
+                            </structure>
+                        </list-property>
+                        <expression name="valueExpr">"Company : " + params["dispCompanies"].value</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+            </row>
+            <row id="755">
+                <cell id="756"/>
+            </row>
+        </grid>
+        <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="698">
+            <property name="cube">DetailCube</property>
+            <property name="measures">
+                <extended-item extensionName="MeasureView" id="712">
+                    <property name="measure">No of Cases</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="713">
+                            <property name="aggregationOnRow">Company Code/company_code</property>
+                            <property name="aggregationOnColumn">ClassCategory/Class Category</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="content">
+                                <data id="714">
+                                    <property name="resultSetColumn">No of Cases_Company Code/company_code_ClassCategory/Class Category</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="aggregations">
+                        <extended-item extensionName="AggregationCell" id="746">
+                            <property name="aggregationOnColumn">ClassCategory/Class Category</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">medium</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">medium</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">medium</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">medium</property>
+                            <property name="content">
+                                <data id="747">
+                                    <property name="fontWeight">bold</property>
+                                    <property name="resultSetColumn">No of Cases_ClassCategory/Class Category</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="AggregationCell" id="759">
+                            <property name="aggregationOnRow">Company Code/company_code</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="content">
+                                <data id="760">
+                                    <property name="resultSetColumn">No of Cases_Company Code/company_code_1</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="AggregationCell" id="761">
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">medium</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">medium</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">medium</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">medium</property>
+                            <property name="content">
+                                <data id="762">
+                                    <property name="resultSetColumn">No of Cases</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="715">
+                            <property name="content">
+                                <label id="716">
+                                    <text-property name="text">No of Cases</text-property>
+                                </label>
+                            </property>
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">center</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">medium</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">medium</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">medium</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">medium</property>
+                        </extended-item>
+                        <extended-item extensionName="CrosstabCell" id="763">
+                            <property name="content">
+                                <label id="764">
+                                    <property name="fontWeight">bold</property>
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">No of Cases</text-property>
+                                </label>
+                            </property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">medium</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">medium</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">medium</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">medium</property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="718">
+                    <property name="measure">Estimated Amount (RM)</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="719">
+                            <property name="aggregationOnRow">Company Code/company_code</property>
+                            <property name="aggregationOnColumn">ClassCategory/Class Category</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="content">
+                                <data id="720">
+                                    <structure name="numberFormat">
+                                        <property name="category">Currency</property>
+                                        <property name="pattern">#,##0.00;(#,##0.00){RoundingMode=HALF_UP}</property>
+                                    </structure>
+                                    <property name="resultSetColumn">Estimated Amount (RM)_Company Code/company_code_ClassCategory/Class Category</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="aggregations">
+                        <extended-item extensionName="AggregationCell" id="748">
+                            <property name="aggregationOnColumn">ClassCategory/Class Category</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">medium</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">medium</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">medium</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">medium</property>
+                            <property name="content">
+                                <data id="749">
+                                    <property name="fontWeight">bold</property>
+                                    <property name="resultSetColumn">Estimated Amount (RM)_ClassCategory/Class Category</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="AggregationCell" id="766">
+                            <property name="aggregationOnRow">Company Code/company_code</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="content">
+                                <data id="767">
+                                    <property name="resultSetColumn">Estimated Amount (RM)_Company Code/company_code_1</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="AggregationCell" id="768">
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">medium</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">medium</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">medium</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">medium</property>
+                            <property name="content">
+                                <data id="769">
+                                    <property name="resultSetColumn">Estimated Amount (RM)</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="721">
+                            <property name="content">
+                                <label id="722">
+                                    <property name="fontWeight">bold</property>
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">Estimated Amount (RM)</text-property>
+                                </label>
+                            </property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">medium</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">medium</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">medium</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">medium</property>
+                        </extended-item>
+                        <extended-item extensionName="CrosstabCell" id="770">
+                            <property name="content">
+                                <label id="771">
+                                    <property name="fontWeight">bold</property>
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">Estimated Amount (RM)</text-property>
+                                </label>
+                            </property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">medium</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">medium</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">medium</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">medium</property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="723">
+                    <property name="measure">Paid Amount (RM)</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="724">
+                            <property name="aggregationOnRow">Company Code/company_code</property>
+                            <property name="aggregationOnColumn">ClassCategory/Class Category</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="content">
+                                <data id="725">
+                                    <structure name="numberFormat">
+                                        <property name="category">Custom</property>
+                                        <property name="pattern">#,##0.00</property>
+                                    </structure>
+                                    <property name="resultSetColumn">Paid Amount (RM)_Company Code/company_code_ClassCategory/Class Category</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="aggregations">
+                        <extended-item extensionName="AggregationCell" id="750">
+                            <property name="aggregationOnColumn">ClassCategory/Class Category</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">medium</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">medium</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">medium</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">medium</property>
+                            <property name="content">
+                                <data id="751">
+                                    <property name="fontWeight">bold</property>
+                                    <property name="resultSetColumn">Paid Amount (RM)_ClassCategory/Class Category</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="AggregationCell" id="772">
+                            <property name="aggregationOnRow">Company Code/company_code</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="content">
+                                <data id="773">
+                                    <property name="resultSetColumn">Paid Amount (RM)_Company Code/company_code</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="AggregationCell" id="774">
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">medium</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">medium</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">medium</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">medium</property>
+                            <property name="content">
+                                <data id="775">
+                                    <property name="resultSetColumn">Paid Amount (RM)</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="726">
+                            <property name="content">
+                                <label id="727">
+                                    <property name="fontWeight">bold</property>
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">Paid Amount (RM)</text-property>
+                                </label>
+                            </property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">medium</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">medium</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">medium</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">medium</property>
+                        </extended-item>
+                        <extended-item extensionName="CrosstabCell" id="776">
+                            <property name="content">
+                                <label id="777">
+                                    <property name="fontWeight">bold</property>
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">Paid Amount (RM)</text-property>
+                                </label>
+                            </property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">medium</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">medium</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">medium</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">medium</property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="728">
+                    <property name="measure">Incurred Amount(RM)</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="729">
+                            <property name="aggregationOnRow">Company Code/company_code</property>
+                            <property name="aggregationOnColumn">ClassCategory/Class Category</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="content">
+                                <data id="730">
+                                    <structure name="numberFormat">
+                                        <property name="category">Custom</property>
+                                        <property name="pattern">#,##0.00</property>
+                                    </structure>
+                                    <property name="resultSetColumn">Incurred Amount(RM)_Company Code/company_code_ClassCategory/Class Category</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="aggregations">
+                        <extended-item extensionName="AggregationCell" id="752">
+                            <property name="aggregationOnColumn">ClassCategory/Class Category</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">medium</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">medium</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">medium</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">medium</property>
+                            <property name="content">
+                                <data id="753">
+                                    <property name="fontWeight">bold</property>
+                                    <property name="resultSetColumn">Incurred Amount(RM)_ClassCategory/Class Category</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="AggregationCell" id="778">
+                            <property name="aggregationOnRow">Company Code/company_code</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="content">
+                                <data id="779">
+                                    <property name="resultSetColumn">Incurred Amount(RM)_Company Code/company_code</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="AggregationCell" id="780">
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">medium</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">medium</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">medium</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">medium</property>
+                            <property name="content">
+                                <data id="781">
+                                    <property name="resultSetColumn">Incurred Amount(RM)</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="731">
+                            <property name="content">
+                                <label id="732">
+                                    <property name="fontWeight">bold</property>
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">Incurred Amount (RM)</text-property>
+                                </label>
+                            </property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">medium</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">medium</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">medium</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">medium</property>
+                        </extended-item>
+                        <extended-item extensionName="CrosstabCell" id="782">
+                            <property name="content">
+                                <label id="783">
+                                    <property name="fontWeight">bold</property>
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">Incurred Amount(RM)</text-property>
+                                </label>
+                            </property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">medium</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">medium</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">medium</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">medium</property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="rows">
+                <extended-item extensionName="CrosstabView" id="706">
+                    <property name="grandTotal">
+                        <extended-item extensionName="CrosstabCell" id="745">
+                            <property name="content">
+                                <label id="754">
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">Grand Total</text-property>
+                                </label>
+                            </property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">medium</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">medium</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">medium</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">medium</property>
+                        </extended-item>
+                    </property>
+                    <property name="views">
+                        <extended-item extensionName="DimensionView" id="707">
+                            <property name="dimension">Company Code</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View1" id="708">
+                                    <property name="level">Company Code/company_code</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="709">
+                                            <property name="content">
+                                                <data name="company_code1" id="710">
+                                                    <property name="resultSetColumn">company_code</property>
+                                                </data>
+                                            </property>
+                                            <property name="borderTopStyle">solid</property>
+                                            <property name="borderTopWidth">thin</property>
+                                            <property name="borderLeftStyle">solid</property>
+                                            <property name="borderLeftWidth">thin</property>
+                                            <property name="borderBottomStyle">solid</property>
+                                            <property name="borderBottomWidth">thin</property>
+                                            <property name="borderRightStyle">solid</property>
+                                            <property name="borderRightWidth">thin</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="columns">
+                <extended-item extensionName="CrosstabView" id="700">
+                    <property name="grandTotal">
+                        <extended-item extensionName="CrosstabCell" id="758">
+                            <property name="content">
+                                <label id="765">
+                                    <property name="fontWeight">bold</property>
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">Grand Total</text-property>
+                                </label>
+                            </property>
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">left</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">medium</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">medium</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">medium</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">medium</property>
+                        </extended-item>
+                    </property>
+                    <property name="views">
+                        <extended-item extensionName="DimensionView" id="701">
+                            <property name="dimension">ClassCategory</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View" id="702">
+                                    <property name="level">ClassCategory/Class Category</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="703">
+                                            <property name="content">
+                                                <data name="Class Category" id="704">
+                                                    <property name="fontWeight">bold</property>
+                                                    <property name="textAlign">center</property>
+                                                    <property name="resultSetColumn">Class Category</property>
+                                                </data>
+                                            </property>
+                                            <property name="borderTopStyle">solid</property>
+                                            <property name="borderTopWidth">medium</property>
+                                            <property name="borderLeftStyle">solid</property>
+                                            <property name="borderLeftWidth">medium</property>
+                                            <property name="borderBottomStyle">solid</property>
+                                            <property name="borderBottomWidth">medium</property>
+                                            <property name="borderRightStyle">solid</property>
+                                            <property name="borderRightWidth">medium</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="header">
+                <extended-item extensionName="CrosstabCell" id="717">
+                    <property name="content">
+                        <text id="734">
+                            <property name="contentType">auto</property>
+                            <text-property name="content"><![CDATA[COMPANY CODE]]></text-property>
+                        </text>
+                    </property>
+                    <property name="fontFamily">serif</property>
+                    <property name="fontWeight">bold</property>
+                    <property name="textAlign">center</property>
+                    <property name="verticalAlign">middle</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">medium</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">medium</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">medium</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">medium</property>
+                </extended-item>
+            </property>
+            <structure name="toc"/>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Class Category</property>
+                    <expression name="expression">dimension["ClassCategory"]["Class Category"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">company_code</property>
+                    <expression name="expression">dimension["Company Code"]["company_code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">No of Cases_Company Code/company_code_ClassCategory/Class Category</property>
+                    <expression name="expression">measure["No of Cases"]</expression>
+                    <property name="dataType">integer</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Company Code/company_code</value>
+                        <value>ClassCategory/Class Category</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">Estimated Amount (RM)_Company Code/company_code_ClassCategory/Class Category</property>
+                    <expression name="expression">measure["Estimated Amount (RM)"]</expression>
+                    <property name="dataType">decimal</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Company Code/company_code</value>
+                        <value>ClassCategory/Class Category</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">Paid Amount (RM)_Company Code/company_code_ClassCategory/Class Category</property>
+                    <expression name="expression">measure["Paid Amount (RM)"]</expression>
+                    <property name="dataType">decimal</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Company Code/company_code</value>
+                        <value>ClassCategory/Class Category</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">Incurred Amount(RM)_Company Code/company_code_ClassCategory/Class Category</property>
+                    <expression name="expression">measure["Incurred Amount(RM)"]</expression>
+                    <property name="dataType">decimal</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Company Code/company_code</value>
+                        <value>ClassCategory/Class Category</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">No of Cases_Company Code/company_code</property>
+                    <expression name="expression">measure["No of Cases"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Company Code/company_code</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">sum</property>
+                </structure>
+                <structure>
+                    <property name="name">Estimated Amount (RM)_Company Code/company_code</property>
+                    <expression name="expression">measure["Estimated Amount (RM)"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Company Code/company_code</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">sum</property>
+                </structure>
+                <structure>
+                    <property name="name">No of Cases_ClassCategory/Class Category</property>
+                    <expression name="expression">measure["No of Cases"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>ClassCategory/Class Category</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">sum</property>
+                </structure>
+                <structure>
+                    <property name="name">Estimated Amount (RM)_ClassCategory/Class Category</property>
+                    <expression name="expression">measure["Estimated Amount (RM)"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>ClassCategory/Class Category</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">Paid Amount (RM)_ClassCategory/Class Category</property>
+                    <expression name="expression">measure["Paid Amount (RM)"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>ClassCategory/Class Category</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">Incurred Amount(RM)_ClassCategory/Class Category</property>
+                    <expression name="expression">measure["Incurred Amount(RM)"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>ClassCategory/Class Category</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">No of Cases_Company Code/company_code_1</property>
+                    <expression name="expression">measure["No of Cases"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Company Code/company_code</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">sum</property>
+                </structure>
+                <structure>
+                    <property name="name">No of Cases</property>
+                    <expression name="expression">measure["No of Cases"]</expression>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">sum</property>
+                </structure>
+                <structure>
+                    <property name="name">Estimated Amount (RM)_Company Code/company_code_1</property>
+                    <expression name="expression">measure["Estimated Amount (RM)"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Company Code/company_code</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">sum</property>
+                </structure>
+                <structure>
+                    <property name="name">Estimated Amount (RM)</property>
+                    <expression name="expression">measure["Estimated Amount (RM)"]</expression>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">sum</property>
+                </structure>
+                <structure>
+                    <property name="name">Paid Amount (RM)_Company Code/company_code</property>
+                    <expression name="expression">measure["Paid Amount (RM)"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Company Code/company_code</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">sum</property>
+                </structure>
+                <structure>
+                    <property name="name">Paid Amount (RM)</property>
+                    <expression name="expression">measure["Paid Amount (RM)"]</expression>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">sum</property>
+                </structure>
+                <structure>
+                    <property name="name">Incurred Amount(RM)_Company Code/company_code</property>
+                    <expression name="expression">measure["Incurred Amount(RM)"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Company Code/company_code</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">sum</property>
+                </structure>
+                <structure>
+                    <property name="name">Incurred Amount(RM)</property>
+                    <expression name="expression">measure["Incurred Amount(RM)"]</expression>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">sum</property>
+                </structure>
+            </list-property>
+        </extended-item>
+    </body>
+</report>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+    ">
+	<bean id="ear.context"
+		class="org.springframework.context.support.ClassPathXmlApplicationContext">
+		<constructor-arg>
+			<list>
+				<!-- order of context file is important -->
+				<value>classpath:/CONTEXT-INF/app-context.xml</value>
+				<value>classpath:/CONTEXT-INF/security-context.xml</value>
+				<value>classpath:/CONTEXT-INF/persistence-context.xml</value>
+				<!-- Jar reference must be setup for this module to allow this context 
+					to pick up all module-context.xml. How to check: -> Project properties -> 
+					Java EE Module Dependancies -> check all jar modules that need their module-context.xml 
+					to be loaded. -->
+				<value>classpath*:/CONTEXT-INF/module-context.xml</value>
+			</list>
+		</constructor-arg>
+	</bean>
+</beans>

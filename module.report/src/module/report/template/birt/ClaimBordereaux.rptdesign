@@ -1,0 +1,3300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.7.0.v201706222054</property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">5</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">5</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">5</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <method name="initialize"><![CDATA[rowsReturned=0;]]></method>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="userCompany" id="402">
+            <text-property name="promptText">User Company</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">multi-value</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="companies" id="172">
+            <text-property name="promptText">Company</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">decimal</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">multi-value</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">true</property>
+            <structure name="format">
+                <property name="category">Fixed</property>
+                <property name="pattern">###0{RoundingMode=HALF_UP}</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="insuranceClass" id="515">
+            <text-property name="promptText">Insurance Class</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">multi-value</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="fromLossDate" id="173">
+            <text-property name="promptText">From Loss Date</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">dateTime</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Custom</property>
+                <property name="pattern">dd/MM/yyyy HH:mm:ss</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="toLossDate" id="174">
+            <text-property name="promptText">To Loss Date</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">dateTime</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Custom</property>
+                <property name="pattern">dd/MM/yyyy HH:mm:ss</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="insurers" id="175">
+            <text-property name="promptText">Insurer</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">multi-value</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="policyNumbers" id="177">
+            <text-property name="promptText">policyNumbers</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">multi-value</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="claimStatus" id="178">
+            <text-property name="promptText">Claim Status</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="REPORT_DATETIME" id="196">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="REPORT_CREATOR" id="197">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dispClaimStatus" id="367">
+            <text-property name="promptText">dispClaimStatus</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dispCompanies" id="390">
+            <text-property name="promptText">dispCompanies</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dispFromLossDate" id="369">
+            <text-property name="promptText">dispFromLossDate</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">dateTime</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dispToLossDate" id="370">
+            <text-property name="promptText">dispToLossDate</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">dateTime</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dispInsurers" id="374">
+            <text-property name="promptText">dispInsurers</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dispInsuranceClass" id="376">
+            <text-property name="promptText">dispInsuranceClass</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dispPolicyNumbers" id="378">
+            <text-property name="promptText">dispPolicyNumbers</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="showCompany" id="435">
+            <text-property name="promptText">showCompany</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">boolean</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">False</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">check-box</property>
+            <structure name="format"/>
+        </scalar-parameter>
+        <scalar-parameter name="groupOfInsuranceCode" id="503">
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dispGroupOfInsuranceCode" id="509">
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Postgres Data Source" id="4">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">org.postgresql.Driver</property>
+            <property name="odaURL">jdbc:postgresql://192.168.1.30:5432/gcms</property>
+            <property name="odaUser">gcms</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">Z2Ntcw==</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Claim Listing Data Set" id="5">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">totalRow</property>
+                    <property name="dataType">integer</property>
+                    <property name="aggregateFunction">COUNT</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value">row["claim_no"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">claim_no</property>
+                    <property name="alias">claim_no</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Claim Number</text-property>
+                    <text-property name="heading">claim_no</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">insuredrefno</property>
+                    <property name="alias">insuredrefno</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">company</property>
+                    <property name="alias">company</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Company</text-property>
+                    <text-property name="heading">company</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">department</property>
+                    <property name="alias">department</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Department</text-property>
+                    <text-property name="heading">department</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">insurer_company</property>
+                    <property name="alias">insurer_company</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">insuranceclass</property>
+                    <property name="alias">insuranceclass</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Class of Insurance</text-property>
+                    <text-property name="heading">insuranceclass</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">policy_no</property>
+                    <property name="alias">policy_no</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Policy No</text-property>
+                    <text-property name="heading">policy_no</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">notificationdate</property>
+                    <property name="alias">notificationdate</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">loss_date</property>
+                    <property name="alias">loss_date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Loss Date</text-property>
+                    <text-property name="heading">loss_date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">status</property>
+                    <property name="alias">status</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Status</text-property>
+                    <text-property name="heading">status</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">adjuster_firm</property>
+                    <property name="alias">adjuster_firm</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">solicitor_firm</property>
+                    <property name="alias">solicitor_firm</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">insurer_ref</property>
+                    <property name="alias">insurer_ref</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Insurer Ref</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">loss_desc</property>
+                    <property name="alias">loss_desc</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Loss Description</text-property>
+                    <text-property name="heading">loss_desc</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">est_lost_amt</property>
+                    <property name="alias">est_lost_amt</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Estimated Loss</text-property>
+                    <text-property name="heading">est_lost_amt</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">excess_amt</property>
+                    <property name="alias">excess_amt</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Excess Amount</text-property>
+                    <text-property name="heading">excess_amt</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">approval_amt</property>
+                    <property name="alias">approval_amt</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Approved Amount</text-property>
+                    <text-property name="heading">approval_amt</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">reserve_amount</property>
+                    <property name="alias">reserve_amount</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Reserve Amount</text-property>
+                    <text-property name="heading">reserve_amount</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">paid_date</property>
+                    <property name="alias">paid_date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Paid Date</text-property>
+                    <text-property name="heading">paid_date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">remark</property>
+                    <property name="alias">remark</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">remark</text-property>
+                    <text-property name="heading">remark</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">outstanding_doc</property>
+                    <property name="alias">outstanding_doc</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">doc_completion_date</property>
+                    <property name="alias">doc_completion_date</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">adj_final_report_date</property>
+                    <property name="alias">adj_final_report_date</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">offer_date</property>
+                    <property name="alias">offer_date</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">p1</property>
+                    <property name="alias">p1</property>
+                    <property name="analysis">measure</property>
+                </structure>
+                <structure>
+                    <property name="columnName">p2</property>
+                    <property name="alias">p2</property>
+                    <property name="analysis">measure</property>
+                </structure>
+                <structure>
+                    <property name="columnName">p3</property>
+                    <property name="alias">p3</property>
+                    <property name="analysis">measure</property>
+                </structure>
+                <structure>
+                    <property name="columnName">p4</property>
+                    <property name="alias">p4</property>
+                    <property name="analysis">measure</property>
+                </structure>
+                <structure>
+                    <property name="columnName">p5</property>
+                    <property name="alias">p5</property>
+                    <property name="analysis">measure</property>
+                </structure>
+                <structure>
+                    <property name="columnName">p6</property>
+                    <property name="alias">p6</property>
+                    <property name="analysis">measure</property>
+                </structure>
+                <structure>
+                    <property name="columnName">p7</property>
+                    <property name="alias">p7</property>
+                    <property name="analysis">measure</property>
+                </structure>
+            </list-property>
+            <list-property name="filter"/>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">claim_no</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">insuredrefno</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">company</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">department</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">insurer_company</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">insuranceclass</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">policy_no</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">notificationdate</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">loss_date</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">status</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">adjuster_firm</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">solicitor_firm</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">loss_of_type</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">insurer_ref</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">loss_desc</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">est_lost_amt</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">excess_amt</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">approval_amt</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">reserve_amount</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">paid_date</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">remark</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">outstanding_doc</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">doc_completion_date</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">24</property>
+                        <property name="name">adj_final_report_date</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">25</property>
+                        <property name="name">offer_date</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">26</property>
+                        <property name="name">paid_date_26</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">27</property>
+                        <property name="name">p1</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">28</property>
+                        <property name="name">p2</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">29</property>
+                        <property name="name">p3</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">30</property>
+                        <property name="name">p4</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">31</property>
+                        <property name="name">p5</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">32</property>
+                        <property name="name">p6</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">33</property>
+                        <property name="name">p7</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">34</property>
+                        <property name="name">totalRow</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <method name="beforeOpen"><![CDATA[importPackage( Packages.java.text );
+var sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", reportContext.getLocale());
+
+var qrStr=" (c.deleted IS NULL OR c.deleted = false) ";
+
+//User Company
+var userCompany = reportContext.getParameterValue("userCompany");
+if( (userCompany != null &amp;&amp; userCompany.length > 0) ){
+	var userCompanyCodes = "";
+	
+	for(var i = 0; i < userCompany.length; i++) {
+		userCompanyCodes += "'" + userCompany[i] + "',";
+	}
+
+	if(userCompanyCodes != "") {
+		userCompanyCodes = userCompanyCodes.substring(0, userCompanyCodes.length - 1);
+	}
+
+	if(qrStr != "") {
+		qrStr += " AND";
+	}
+	qrStr += " comp.code IN (" + userCompanyCodes + ")";
+}
+
+// Companies
+var companies = reportContext.getParameterValue("companies");
+if( (companies != null &amp;&amp; companies.length > 0) ){
+	var companyIds = "";
+	
+	for(var i = 0; i < companies.length; i++) {
+		companyIds += companies[i] + ",";
+	}
+
+	if(companyIds != "") {
+		companyIds = companyIds.substring(0, companyIds.length - 1);
+	}
+	
+	if(qrStr != "") {
+		qrStr += " AND";
+	}
+	
+	qrStr += " comp.id IN (" + companyIds + ")";
+}
+
+// From Loss Date, To Loss Date
+var fromLossDate = reportContext.getParameterValue("fromLossDate");
+var toLossDate = reportContext.getParameterValue("toLossDate");
+if( (fromLossDate != null &amp;&amp; fromLossDate.value != "" &amp;&amp; toLossDate != null &amp;&amp; toLossDate.value != "") ){
+	if(qrStr != "") {
+		qrStr += " AND";
+	}
+
+	qrStr += " c.loss_date between to_timestamp('" + sdf.format( fromLossDate ) + "', 'DD-MM-YYYY HH24:MI:SS') and to_timestamp('" + sdf.format( toLossDate ) + "', 'DD-MM-YYYY HH24:MI:SS')";
+}
+else if( (fromLossDate != null &amp;&amp; fromLossDate.value != "" &amp;&amp; (toLossDate == null || toLossDate.value == "") ) ){
+	if(qrStr != "") {
+		qrStr += " AND";
+	}
+
+	qrStr += " c.loss_date >= to_timestamp('" + sdf.format( fromLossDate ) + "', 'DD-MM-YYYY HH24:MI:SS')";
+}
+else if( ( (fromLossDate == null || fromLossDate.value == "") &amp;&amp; toLossDate != null &amp;&amp; toLossDate.value != "" ) ){
+	if(qrStr != "") {
+		qrStr += " AND";
+	}
+
+	qrStr += " c.loss_date <= to_timestamp('" + sdf.format( toLossDate ) + "', 'DD-MM-YYYY HH24:MI:SS')";
+}
+
+// Insurers
+var insurers = reportContext.getParameterValue("insurers");
+if( (insurers != null &amp;&amp; insurers.length > 0) ){
+	var insurerCodes = "";
+	
+	for(var i = 0; i < insurers.length; i++) {
+		insurerCodes += "'" + insurers[i] + "',";
+	}
+
+	if(insurerCodes != "") {
+		insurerCodes = insurerCodes.substring(0, insurerCodes.length - 1);
+	}
+	
+	if(qrStr != "") {
+		qrStr += " AND";
+	}
+	
+	qrStr += " p.insurer_code IN (" + insurerCodes + ")";
+}
+
+// Group of Insurance
+var groupOfInsurance = reportContext.getParameterValue("groupOfInsuranceCode");
+if( (groupOfInsurance != null &amp;&amp; groupOfInsurance != "") ){
+	qrStr += " AND icc.code = '" + groupOfInsurance + "'";
+}
+
+// Class of Insurance
+var insuranceClass = reportContext.getParameterValue("insuranceClass");
+if( (insuranceClass != null &amp;&amp; insuranceClass.length > 0) ) {
+	var insurerClassCodes = "";
+	for(var i = 0; i < insuranceClass.length; i++) {
+		insurerClassCodes += "'" + insuranceClass[i] + "',";
+	}
+	if(insurerClassCodes != "") {
+	  insurerClassCodes = insurerClassCodes.substring(0, insurerClassCodes.length - 1);
+	}
+	qrStr += " AND ic.code in (" + insurerClassCodes + ")";
+}
+
+
+// Policy Numbers
+var policyNumbers = reportContext.getParameterValue("policyNumbers");
+if( (policyNumbers != null &amp;&amp; policyNumbers.length > 0) ){
+	var policyNos = "";
+	
+	for(var i = 0; i < policyNumbers.length; i++) {
+		policyNos += "'" + policyNumbers[i] + "',";
+	}
+
+	if(policyNos != "") {
+		policyNos = policyNos.substring(0, policyNos.length - 1);
+	}
+	
+	if(qrStr != "") {
+		qrStr += " AND";
+	}
+	
+	qrStr += " p.policy_no IN (" + policyNos + ")";
+}
+
+// Claim Status
+var claimStatus = reportContext.getParameterValue("claimStatus");
+if( (claimStatus != null &amp;&amp; claimStatus != "") ){
+	if(qrStr != "") {
+		qrStr += " AND";
+	}
+	
+	qrStr += " c.status = '" + claimStatus + "'";
+}
+
+if (qrStr != "") {
+	qrStr = " WHERE " + qrStr;
+}
+
+this.queryText = this.queryText.replace("extraCond", qrStr);
+Packages.java.lang.System.out.println(queryText);]]></method>
+            <method name="onFetch"><![CDATA[rowsReturned++;]]></method>
+            <property name="dataSource">Postgres Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">claim_no</property>
+                    <property name="nativeName">claim_no</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">insuredrefno</property>
+                    <property name="nativeName">insuredrefno</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">company</property>
+                    <property name="nativeName">company</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">department</property>
+                    <property name="nativeName">department</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">insurer_company</property>
+                    <property name="nativeName">insurer_company</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">insuranceclass</property>
+                    <property name="nativeName">insuranceclass</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">policy_no</property>
+                    <property name="nativeName">policy_no</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">notificationdate</property>
+                    <property name="nativeName">notificationdate</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">loss_date</property>
+                    <property name="nativeName">loss_date</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">status</property>
+                    <property name="nativeName">status</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">adjuster_firm</property>
+                    <property name="nativeName">adjuster_firm</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">solicitor_firm</property>
+                    <property name="nativeName">solicitor_firm</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">loss_of_type</property>
+                    <property name="nativeName">loss_of_type</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">insurer_ref</property>
+                    <property name="nativeName">insurer_ref</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">loss_desc</property>
+                    <property name="nativeName">loss_desc</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">est_lost_amt</property>
+                    <property name="nativeName">est_lost_amt</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">excess_amt</property>
+                    <property name="nativeName">excess_amt</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">approval_amt</property>
+                    <property name="nativeName">approval_amt</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">reserve_amount</property>
+                    <property name="nativeName">reserve_amount</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">paid_date</property>
+                    <property name="nativeName">paid_date</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">remark</property>
+                    <property name="nativeName">remark</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">outstanding_doc</property>
+                    <property name="nativeName">outstanding_doc</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">doc_completion_date</property>
+                    <property name="nativeName">doc_completion_date</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">24</property>
+                    <property name="name">adj_final_report_date</property>
+                    <property name="nativeName">adj_final_report_date</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">25</property>
+                    <property name="name">offer_date</property>
+                    <property name="nativeName">offer_date</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">26</property>
+                    <property name="name">paid_date_26</property>
+                    <property name="nativeName">paid_date</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">27</property>
+                    <property name="name">p1</property>
+                    <property name="nativeName">p1</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">28</property>
+                    <property name="name">p2</property>
+                    <property name="nativeName">p2</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">29</property>
+                    <property name="name">p3</property>
+                    <property name="nativeName">p3</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">30</property>
+                    <property name="name">p4</property>
+                    <property name="nativeName">p4</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">31</property>
+                    <property name="name">p5</property>
+                    <property name="nativeName">p5</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">32</property>
+                    <property name="name">p6</property>
+                    <property name="nativeName">p6</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">33</property>
+                    <property name="name">p7</property>
+                    <property name="nativeName">p7</property>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT
+    c.claim_no,
+    c.cms_reference as insuredRefNo,
+    comp.name AS company,
+    d.name    AS department,
+    ins.name  AS insurer_company,
+    ic.name   AS insuranceClass,
+    p.policy_no,
+    c.notify_date AS notificationDate,
+    c.loss_date,
+    CASE c.status
+        WHEN 'OPN'
+        THEN 'Open'
+        WHEN 'PDOC'
+        THEN 'Pending Document'
+        WHEN 'PACC'
+        THEN 'Pending Acceptance'
+        WHEN 'PADJ'
+        THEN 'Pending Adjuster'
+        WHEN 'POFR'
+        THEN 'Pending Offer'
+        WHEN 'PPYMT'
+        THEN 'Pending Payment'
+        WHEN 'CUEX'
+        THEN 'Closed - Within Policy Excess'
+        WHEN 'CDCL'
+        THEN 'Closed - Declined'
+        WHEN 'CWDTH'
+        THEN 'Closed - Withdrawn'
+        ELSE 'Closed - Paid'
+    END AS status,
+    adj.firm_name AS adjuster_firm,
+    sol.firm_name AS solicitor_firm,
+    lt."name" AS loss_of_type, 
+    c.insurer_ref,
+    encode(loread( lo_open(c.loss_desc::INT, x'40000'::INT), x'40000'::INT), 'escape') AS loss_desc,
+    c.est_lost_amt,
+    c.excess_amt,
+    c.approval_amt,
+    c.reserve_amount,
+    c.paid_date,
+    c.remark,
+    c.outstanding_doc, 
+    c.doc_completion_date,
+    c.adj_final_report_date, 
+    c.approval_date AS offer_date,
+    c.paid_date,
+    CASE
+        WHEN c.notify_date IS NOT NULL
+        AND c.loss_date IS NOT NULL
+        THEN CAST(extract(DAY FROM date_trunc('day', c.notify_date) - date_trunc('day', c.loss_date
+            )) AS INT)
+        ELSE 0
+    END AS p1,
+    CASE
+        WHEN c.doc_completion_date IS NOT NULL
+        AND c.loss_date IS NOT NULL
+        THEN CAST(extract(DAY FROM date_trunc('day', c.doc_completion_date) - date_trunc('day',
+            c.loss_date)) AS INT)
+        ELSE 0
+    END AS p2,
+    CASE
+        WHEN c.approval_date IS NOT NULL
+        AND c.loss_date IS NOT NULL
+        THEN CAST(extract(DAY FROM date_trunc('day', c.approval_date) - date_trunc('day',
+            c.loss_date)) AS INT)
+        ELSE 0
+    END AS p3,
+    CASE
+        WHEN c.paid_date IS NOT NULL
+        AND c.loss_date IS NOT NULL
+        THEN CAST(extract(DAY FROM date_trunc('day', c.paid_date) - date_trunc('day', c.loss_date))
+            AS INT)
+        ELSE 0
+    END AS p4,
+    CASE
+        WHEN c.approval_date IS NOT NULL
+        AND c.doc_completion_date IS NOT NULL
+        THEN CAST(extract(DAY FROM date_trunc('day', c.approval_date) - date_trunc('day',
+            c.doc_completion_date)) AS INT)
+        ELSE 0
+    END AS p5,
+    CASE
+        WHEN c.paid_date IS NOT NULL
+        AND c.loss_date IS NOT NULL
+        THEN CAST(extract(DAY FROM date_trunc('day', NOW()) - date_trunc('day', c.loss_date))
+            AS INT)
+        ELSE 0
+    END AS p6,
+    CASE
+        WHEN c.approval_date IS NOT NULL
+        AND c.doc_completion_date IS NOT NULL
+        THEN CAST(extract(DAY FROM date_trunc('day', NOW()) - date_trunc('day',
+            c.doc_completion_date)) AS INT)
+        ELSE 0
+    END AS p7
+FROM
+    claim AS c
+LEFT JOIN
+    policy AS p
+ON
+    c.policy_id = p.id
+LEFT JOIN 
+    insurer ins
+ON 
+    p.insurer_code = ins.code
+LEFT JOIN
+    company AS comp
+ON
+    p.company_id = comp.id
+LEFT JOIN
+    company_department AS d
+ON
+    d.id = c.department_id
+LEFT JOIN
+    insurance_class AS ic
+ON
+    p.insurance_class_code = ic.code
+LEFT JOIN
+    insurance_class_category AS icc
+ON
+    ic.category = icc.code
+LEFT JOIN 
+    adjuster adj 
+ON 
+    c.adjuster_id = adj.id
+LEFT JOIN 
+    solicitor sol
+ON 
+    c.solicitor_id = sol.id
+LEFT JOIN 
+    loss_type AS lt 
+ON 
+    c.loss_type_code = lt.code 
+extraCond
+ORDER BY
+    c.credate ASC]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>claim_no</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>claim_no</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>claim_no</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>name</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>name</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>name</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>100</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>name</design:label>
+            <design:formattingHints>
+              <design:displaySize>100</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>policy_no</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>policy_no</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>policy_no</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>loss_date</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+            <design:precision>29</design:precision>
+            <design:scale>6</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>loss_date</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>loss_date</design:label>
+            <design:formattingHints>
+              <design:displaySize>29</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>status</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>status</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>status</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>loss_desc</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>2147483647</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Unknown</design:nullability>
+            <design:uiHints>
+              <design:displayName>loss_desc</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>loss_desc</design:label>
+            <design:formattingHints>
+              <design:displaySize>2147483647</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>est_lost_amt</design:name>
+              <design:position>8</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>2</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>est_lost_amt</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>est_lost_amt</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>excess_amt</design:name>
+              <design:position>9</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>2</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>excess_amt</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>excess_amt</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>approval_amt</design:name>
+              <design:position>10</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>2</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>approval_amt</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>approval_amt</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>paid_date</design:name>
+              <design:position>11</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+            <design:precision>29</design:precision>
+            <design:scale>6</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>paid_date</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>paid_date</design:label>
+            <design:formattingHints>
+              <design:displaySize>29</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>remark</design:name>
+              <design:position>12</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>500</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>remark</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>remark</design:label>
+            <design:formattingHints>
+              <design:displaySize>500</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="orientation">portrait</property>
+            <property name="display">block</property>
+            <property name="canShrink">false</property>
+            <property name="overflow">auto</property>
+            <property name="height">11in</property>
+            <property name="width">798mm</property>
+            <property name="showHeaderOnFirst">true</property>
+            <property name="showFooterOnLast">false</property>
+            <property name="headerHeight">4.25in</property>
+            <property name="footerHeight">0in</property>
+            <page-header>
+                <grid id="478">
+                    <property name="canShrink">true</property>
+                    <column id="479"/>
+                    <row id="480">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <cell id="481">
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderTopStyle">none</property>
+                            <text-data id="231">
+                                <property name="fontSize">8pt</property>
+                                <property name="borderBottomStyle">none</property>
+                                <property name="borderLeftStyle">none</property>
+                                <property name="borderRightStyle">none</property>
+                                <property name="borderTopStyle">none</property>
+                                <expression name="valueExpr">"Report Date : " + params["REPORT_DATETIME"].value</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                    </row>
+                    <row id="482">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <cell id="483">
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderTopStyle">none</property>
+                            <text-data id="232">
+                                <property name="fontSize">8pt</property>
+                                <property name="borderBottomStyle">none</property>
+                                <property name="borderLeftStyle">none</property>
+                                <property name="borderRightStyle">none</property>
+                                <property name="borderTopStyle">none</property>
+                                <expression name="valueExpr">"Prepared By : " + params["REPORT_CREATOR"].value</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                    </row>
+                    <row id="484">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <cell id="485">
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderTopStyle">none</property>
+                            <label id="433">
+                                <property name="borderBottomStyle">none</property>
+                                <property name="borderLeftStyle">none</property>
+                                <property name="borderRightStyle">none</property>
+                                <property name="borderTopStyle">none</property>
+                                <property name="textAlign">left</property>
+                                <text-property name="text"></text-property>
+                            </label>
+                        </cell>
+                    </row>
+                    <row id="486">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <cell id="487">
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderTopStyle">none</property>
+                            <text id="214">
+                                <property name="borderBottomStyle">none</property>
+                                <property name="borderLeftStyle">none</property>
+                                <property name="borderRightStyle">none</property>
+                                <property name="borderTopStyle">none</property>
+                                <property name="contentType">html</property>
+                                <text-property name="content"><![CDATA[<H2>Claim Bordereaux</H2>]]></text-property>
+                            </text>
+                        </cell>
+                    </row>
+                    <row id="488">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <cell id="489">
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderTopStyle">none</property>
+                            <text id="434">
+                                <property name="borderBottomStyle">none</property>
+                                <property name="borderLeftStyle">none</property>
+                                <property name="borderRightStyle">none</property>
+                                <property name="borderTopStyle">none</property>
+                                <property name="textAlign">left</property>
+                                <property name="contentType">auto</property>
+                                <text-property name="content"><![CDATA[ ]]></text-property>
+                            </text>
+                        </cell>
+                    </row>
+                    <row id="492">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <cell id="493">
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderTopStyle">none</property>
+                            <data id="391">
+                                <property name="borderBottomStyle">none</property>
+                                <property name="borderLeftStyle">none</property>
+                                <property name="borderRightStyle">none</property>
+                                <property name="borderTopStyle">none</property>
+                                <property name="textAlign">left</property>
+                                <list-property name="visibility">
+                                    <structure>
+                                        <property name="format">all</property>
+                                        <expression name="valueExpr" type="javascript">params["dispCompanies"].value == null</expression>
+                                    </structure>
+                                </list-property>
+                                <list-property name="boundDataColumns">
+                                    <structure>
+                                        <property name="name">dispCompanies</property>
+                                        <expression name="expression" type="javascript">"Company : " + (params["dispCompanies"].value != null ? params["dispCompanies"].value : "")</expression>
+                                        <property name="dataType">string</property>
+                                        <property name="allowExport">true</property>
+                                    </structure>
+                                </list-property>
+                                <property name="resultSetColumn">dispCompanies</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="490">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <cell id="491">
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderTopStyle">none</property>
+                            <data id="392">
+                                <structure name="dateTimeFormat">
+                                    <property name="category">Unformatted</property>
+                                </structure>
+                                <structure name="numberFormat">
+                                    <property name="category">Unformatted</property>
+                                </structure>
+                                <property name="textAlign">left</property>
+                                <list-property name="boundDataColumns">
+                                    <structure>
+                                        <property name="name">dispFromLossDate</property>
+                                        <expression name="expression" type="javascript">"From Loss Date : " + (params["dispFromLossDate"].value != null ? new java.text.SimpleDateFormat("dd-MMM-yyyy").format(params["dispFromLossDate"].value) : "") + ", To Loss Date : " + (params["dispToLossDate"].value != null ? new java.text.SimpleDateFormat("dd-MMM-yyyy").format(params["dispToLossDate"].value) : "")</expression>
+                                        <property name="dataType">string</property>
+                                        <property name="allowExport">true</property>
+                                    </structure>
+                                </list-property>
+                                <property name="resultSetColumn">dispFromLossDate</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="496">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <cell id="497">
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderTopStyle">none</property>
+                            <data id="375">
+                                <property name="borderBottomStyle">none</property>
+                                <property name="borderLeftStyle">none</property>
+                                <property name="borderRightStyle">none</property>
+                                <property name="borderTopStyle">none</property>
+                                <property name="textAlign">left</property>
+                                <list-property name="boundDataColumns">
+                                    <structure>
+                                        <property name="name">dispInsurers</property>
+                                        <expression name="expression" type="javascript">"Insurers : " + params["dispInsurers"]</expression>
+                                        <property name="dataType">string</property>
+                                        <property name="allowExport">true</property>
+                                    </structure>
+                                </list-property>
+                                <structure name="toc"/>
+                                <property name="resultSetColumn">dispInsurers</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="500">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <cell id="501">
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderTopStyle">none</property>
+                            <data id="371">
+                                <property name="borderBottomStyle">none</property>
+                                <property name="borderLeftStyle">none</property>
+                                <property name="borderRightStyle">none</property>
+                                <property name="borderTopStyle">none</property>
+                                <property name="textAlign">left</property>
+                                <list-property name="boundDataColumns">
+                                    <structure>
+                                        <property name="name">dispClaimStatus</property>
+                                        <expression name="expression" type="javascript">"Claim Status : " + params["dispClaimStatus"]</expression>
+                                        <property name="dataType">string</property>
+                                        <property name="allowExport">true</property>
+                                    </structure>
+                                </list-property>
+                                <property name="resultSetColumn">dispClaimStatus</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="498">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <cell id="499">
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderTopStyle">none</property>
+                            <data id="379">
+                                <property name="borderBottomStyle">none</property>
+                                <property name="borderLeftStyle">none</property>
+                                <property name="borderRightStyle">none</property>
+                                <property name="borderTopStyle">none</property>
+                                <property name="textAlign">left</property>
+                                <list-property name="boundDataColumns">
+                                    <structure>
+                                        <property name="name">dispPolicyNumbers</property>
+                                        <expression name="expression" type="javascript">"Policy No : " + params["dispPolicyNumbers"]</expression>
+                                        <property name="dataType">string</property>
+                                        <property name="allowExport">true</property>
+                                    </structure>
+                                </list-property>
+                                <property name="resultSetColumn">dispPolicyNumbers</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="507">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <list-property name="visibility">
+                            <structure>
+                                <property name="format">all</property>
+                                <expression name="valueExpr" type="javascript">params["dispGroupOfInsuranceCode"].value == null</expression>
+                            </structure>
+                        </list-property>
+                        <cell id="508">
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderTopStyle">none</property>
+                            <text-data id="511">
+                                <expression name="valueExpr">"Group of Insurance : " + (params["dispGroupOfInsuranceCode"].value != null ? params["dispGroupOfInsuranceCode"].value : "")</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                    </row>
+                    <row id="512">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <list-property name="visibility">
+                            <structure>
+                                <property name="format">all</property>
+                                <expression name="valueExpr" type="javascript">params["dispGroupOfInsuranceCode"].value == null</expression>
+                            </structure>
+                        </list-property>
+                        <cell id="513">
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderTopStyle">none</property>
+                            <data id="377">
+                                <property name="borderBottomStyle">none</property>
+                                <property name="borderLeftStyle">none</property>
+                                <property name="borderRightStyle">none</property>
+                                <property name="borderTopStyle">none</property>
+                                <property name="textAlign">left</property>
+                                <list-property name="boundDataColumns">
+                                    <structure>
+                                        <property name="name">dispInsuranceClass</property>
+                                        <expression name="expression" type="javascript">"Class of Insurance : " + params["dispInsuranceClass"]</expression>
+                                        <property name="dataType">string</property>
+                                        <property name="allowExport">true</property>
+                                    </structure>
+                                </list-property>
+                                <property name="resultSetColumn">dispInsuranceClass</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="629">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <cell id="630">
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderTopStyle">none</property>
+                            <text id="643">
+                                <property name="borderBottomStyle">none</property>
+                                <property name="borderLeftStyle">none</property>
+                                <property name="borderRightStyle">none</property>
+                                <property name="borderTopStyle">none</property>
+                                <property name="textAlign">left</property>
+                                <property name="contentType">auto</property>
+                                <text-property name="content"><![CDATA[ ]]></text-property>
+                            </text>
+                        </cell>
+                    </row>
+                    <row id="633">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <cell id="634">
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderTopStyle">none</property>
+                            <text-data id="646">
+                                <expression name="valueExpr" type="javascript">"Period 1 : Loss Date until Notification Date (in days)"</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                    </row>
+                    <row id="631">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <cell id="632">
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderTopStyle">none</property>
+                            <text-data id="647">
+                                <expression name="valueExpr">"Period 2 : Loss Date until Document Completion Date (in days)"</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                    </row>
+                    <row id="641">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <cell id="642">
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderTopStyle">none</property>
+                            <text-data id="648">
+                                <expression name="valueExpr">"Period 3 : Loss Date until Offer Date (in days)"</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                    </row>
+                    <row id="639">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <cell id="640">
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderTopStyle">none</property>
+                            <text-data id="649">
+                                <expression name="valueExpr">"Period 4 : Loss Date until Paid Date (in days)"</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                    </row>
+                    <row id="637">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <cell id="638">
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderTopStyle">none</property>
+                            <text-data id="650">
+                                <expression name="valueExpr">"Period 5 : Document Completion Date until Offer Date (in days)"</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                    </row>
+                    <row id="635">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <cell id="636">
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderTopStyle">none</property>
+                            <text-data id="651">
+                                <expression name="valueExpr">"Period 6 : Loss Date until Adj. Final Report Submission Date (in days)"</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                    </row>
+                    <row id="652">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <cell id="653">
+                            <property name="borderBottomStyle">none</property>
+                            <property name="borderLeftStyle">none</property>
+                            <property name="borderRightStyle">none</property>
+                            <property name="borderTopStyle">none</property>
+                            <text-data id="654">
+                                <expression name="valueExpr">"Period 7 : Document Completion Date until Adj. Final Report Submission Date (in days)"</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                    </row>
+                </grid>
+            </page-header>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <text id="502">
+            <structure name="toc"/>
+        </text>
+        <table id="82">
+            <property name="fontFamily">sans-serif</property>
+            <property name="display">inline</property>
+            <property name="canShrink">false</property>
+            <property name="overflow">auto</property>
+            <property name="width">23.25in</property>
+            <property name="dataSet">Claim Listing Data Set</property>
+            <list-property name="visibility">
+                <structure>
+                    <property name="format">all</property>
+                    <expression name="valueExpr" type="javascript">row.__rownum &lt; 0</expression>
+                </structure>
+            </list-property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">claim_no</property>
+                    <text-property name="displayName">Claim Number</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["claim_no"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">insuredrefno</property>
+                    <text-property name="displayName">insuredrefno</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["insuredrefno"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">company</property>
+                    <text-property name="displayName">Company</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["company"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">department</property>
+                    <text-property name="displayName">Department</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["department"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">insurer_company</property>
+                    <text-property name="displayName">insurer_company</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["insurer_company"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">insuranceclass</property>
+                    <text-property name="displayName">Class of Insurance</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["insuranceclass"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">policy_no</property>
+                    <text-property name="displayName">Policy No</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["policy_no"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">notificationdate</property>
+                    <text-property name="displayName">notificationdate</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["notificationdate"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">loss_date</property>
+                    <text-property name="displayName">Loss Date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["loss_date"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">status</property>
+                    <text-property name="displayName">Status</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["status"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">adjuster_firm</property>
+                    <text-property name="displayName">adjuster_firm</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["adjuster_firm"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">solicitor_firm</property>
+                    <text-property name="displayName">solicitor_firm</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["solicitor_firm"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">loss_of_type</property>
+                    <text-property name="displayName">loss_of_type</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["loss_of_type"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">insurer_ref</property>
+                    <text-property name="displayName">Insurer Ref</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["insurer_ref"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">loss_desc</property>
+                    <text-property name="displayName">Loss Description</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["loss_desc"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">est_lost_amt</property>
+                    <text-property name="displayName">Estimated Loss</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["est_lost_amt"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">excess_amt</property>
+                    <text-property name="displayName">Excess Amount</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["excess_amt"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">approval_amt</property>
+                    <text-property name="displayName">Approved Amount</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["approval_amt"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">reserve_amount</property>
+                    <text-property name="displayName">Reserve Amount</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["reserve_amount"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">paid_date</property>
+                    <text-property name="displayName">Paid Date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["paid_date"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">remark</property>
+                    <text-property name="displayName">remark</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["remark"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">outstanding_doc</property>
+                    <text-property name="displayName">outstanding_doc</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["outstanding_doc"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">doc_completion_date</property>
+                    <text-property name="displayName">doc_completion_date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["doc_completion_date"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">adj_final_report_date</property>
+                    <text-property name="displayName">adj_final_report_date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["adj_final_report_date"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">offer_date</property>
+                    <text-property name="displayName">offer_date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["offer_date"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">paid_date_26</property>
+                    <text-property name="displayName">paid_date_26</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["paid_date_26"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">p1</property>
+                    <text-property name="displayName">p1</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["p1"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">p2</property>
+                    <text-property name="displayName">p2</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["p2"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">p3</property>
+                    <text-property name="displayName">p3</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["p3"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">p4</property>
+                    <text-property name="displayName">p4</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["p4"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">p5</property>
+                    <text-property name="displayName">p5</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["p5"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">p6</property>
+                    <text-property name="displayName">p6</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["p6"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">p7</property>
+                    <text-property name="displayName">p7</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["p7"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">totalRow</property>
+                    <text-property name="displayName">Row Count</text-property>
+                    <expression name="expression" type="javascript">row.__rownum + 1</expression>
+                    <property name="dataType">integer</property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <structure name="toc"/>
+            <property name="repeatHeader">false</property>
+            <column id="183">
+                <property name="width">0.35in</property>
+            </column>
+            <column id="146">
+                <property name="width">0.9375in</property>
+            </column>
+            <column id="518">
+                <property name="width">0.9375in</property>
+            </column>
+            <column id="147">
+                <property name="width">1.3in</property>
+            </column>
+            <column id="657">
+                <property name="width">0.9642857142857143in</property>
+            </column>
+            <column id="193">
+                <property name="width">1.3125in</property>
+            </column>
+            <column id="523">
+                <property name="width">0.8660714285714286in</property>
+            </column>
+            <column id="148">
+                <property name="width">1.1875in</property>
+            </column>
+            <column id="149">
+                <property name="width">1.2in</property>
+            </column>
+            <column id="528">
+                <property name="width">1.2in</property>
+            </column>
+            <column id="150">
+                <property name="width">0.75in</property>
+            </column>
+            <column id="151">
+                <property name="width">0.6458333333333334in</property>
+            </column>
+            <column id="537">
+                <property name="width">0.6458333333333334in</property>
+            </column>
+            <column id="534">
+                <property name="width">0.646in</property>
+            </column>
+            <column id="663">
+                <property name="width">0.646in</property>
+            </column>
+            <column id="152">
+                <property name="width">2.5in</property>
+            </column>
+            <column id="441">
+                <property name="width">0.9895833333333334in</property>
+            </column>
+            <column id="153">
+                <property name="width">0.9895833333333334in</property>
+            </column>
+            <column id="154">
+                <property name="width">0.78125in</property>
+            </column>
+            <column id="155">
+                <property name="width">0.71875in</property>
+            </column>
+            <column id="157">
+                <property name="width">2.875in</property>
+            </column>
+            <column id="544">
+                <property name="width">1.1428571428571428in</property>
+            </column>
+            <column id="547">
+                <property name="width">0.8214285714285714in</property>
+            </column>
+            <column id="553">
+                <property name="width">0.8303571428571429in</property>
+            </column>
+            <column id="550">
+                <property name="width">0.8482142857142857in</property>
+            </column>
+            <column id="577">
+                <property name="width">0.7142857142857143in</property>
+            </column>
+            <column id="574">
+                <property name="width">0.5803571428571429in</property>
+            </column>
+            <column id="592">
+                <property name="width">0.5803571428571429in</property>
+            </column>
+            <column id="598">
+                <property name="width">0.5803571428571429in</property>
+            </column>
+            <column id="595">
+                <property name="width">0.5803571428571429in</property>
+            </column>
+            <column id="610">
+                <property name="width">0.5803571428571429in</property>
+            </column>
+            <column id="607">
+                <property name="width">0.5803571428571429in</property>
+            </column>
+            <column id="604">
+                <property name="width">0.5803571428571429in</property>
+            </column>
+            <header>
+                <row id="83">
+                    <property name="fontFamily">sans-serif</property>
+                    <property name="fontWeight">bold</property>
+                    <cell id="181">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="182">
+                            <text-property name="text">No.</text-property>
+                        </label>
+                    </cell>
+                    <cell id="84">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="85">
+                            <text-property name="text">Claim No.</text-property>
+                        </label>
+                    </cell>
+                    <cell id="516">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="519">
+                            <text-property name="text">Insured's Ref. No.</text-property>
+                        </label>
+                    </cell>
+                    <cell id="86">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="87">
+                            <text-property name="text">Insured's Company</text-property>
+                        </label>
+                    </cell>
+                    <cell id="191">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="194">
+                            <text-property name="text">Department</text-property>
+                        </label>
+                    </cell>
+                    <cell id="521">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="524">
+                            <text-property name="text">Insurer Company</text-property>
+                        </label>
+                    </cell>
+                    <cell id="655">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="658">
+                            <text-property name="text">Insurer Ref</text-property>
+                        </label>
+                    </cell>
+                    <cell id="88">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="89">
+                            <text-property name="text">Class of Insurance</text-property>
+                        </label>
+                    </cell>
+                    <cell id="90">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="91">
+                            <text-property name="text">Policy No.</text-property>
+                        </label>
+                    </cell>
+                    <cell id="526">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="529">
+                            <text-property name="text">Notification Date</text-property>
+                        </label>
+                    </cell>
+                    <cell id="92">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="93">
+                            <text-property name="text">Loss Date</text-property>
+                        </label>
+                    </cell>
+                    <cell id="94">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="95">
+                            <text-property name="text">Status</text-property>
+                        </label>
+                    </cell>
+                    <cell id="535">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="538">
+                            <text-property name="text">Adjuster Firm</text-property>
+                        </label>
+                    </cell>
+                    <cell id="532">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="540">
+                            <text-property name="text">Solicitor Firm</text-property>
+                        </label>
+                    </cell>
+                    <cell id="661">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="664">
+                            <text-property name="text">Type of Loss</text-property>
+                        </label>
+                    </cell>
+                    <cell id="96">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="97">
+                            <text-property name="text">Loss Description</text-property>
+                        </label>
+                    </cell>
+                    <cell id="439">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="442">
+                            <text-property name="text">Claim Reserve Amount</text-property>
+                        </label>
+                    </cell>
+                    <cell id="98">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="99">
+                            <text-property name="text">Estimated Loss</text-property>
+                        </label>
+                    </cell>
+                    <cell id="100">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="101">
+                            <text-property name="text">Excess Amount</text-property>
+                        </label>
+                    </cell>
+                    <cell id="102">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="103">
+                            <text-property name="text">Paid Amount</text-property>
+                        </label>
+                    </cell>
+                    <cell id="106">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="107">
+                            <text-property name="text">Remark</text-property>
+                        </label>
+                    </cell>
+                    <cell id="542">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="578">
+                            <text-property name="text">Outstanding Documents</text-property>
+                        </label>
+                    </cell>
+                    <cell id="545">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="582">
+                            <text-property name="text">Document Completion Date</text-property>
+                        </label>
+                    </cell>
+                    <cell id="551">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="584">
+                            <text-property name="text">Adj. Final Report Submission Date</text-property>
+                        </label>
+                    </cell>
+                    <cell id="548">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="586">
+                            <text-property name="text">Offer Date</text-property>
+                        </label>
+                    </cell>
+                    <cell id="575">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="105">
+                            <text-property name="text">Paid/Closed Date</text-property>
+                        </label>
+                    </cell>
+                    <cell id="572">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="588">
+                            <text-property name="text">Period 1 (days)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="590">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="611">
+                            <text-property name="text">Period 2 (days)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="596">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="612">
+                            <text-property name="text">Period 3 (days)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="593">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="613">
+                            <text-property name="text">Period 4 (days)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="608">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="614">
+                            <text-property name="text">Period 5 (days)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="605">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="615">
+                            <text-property name="text">Period 6 (days)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="602">
+                        <property name="fontSize">smaller</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="616">
+                            <text-property name="text">Period 7 (days)</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="108">
+                    <property name="fontSize">x-small</property>
+                    <property name="verticalAlign">middle</property>
+                    <cell id="185">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="184">
+                            <property name="fontSize">smaller</property>
+                            <property name="resultSetColumn">totalRow</property>
+                        </data>
+                    </cell>
+                    <cell id="109">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="110">
+                            <property name="fontSize">smaller</property>
+                            <structure name="toc"/>
+                            <property name="resultSetColumn">claim_no</property>
+                        </data>
+                    </cell>
+                    <cell id="517">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="520">
+                            <property name="fontSize">smaller</property>
+                            <property name="resultSetColumn">insuredrefno</property>
+                        </data>
+                    </cell>
+                    <cell id="111">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="112">
+                            <property name="fontSize">smaller</property>
+                            <property name="resultSetColumn">company</property>
+                        </data>
+                    </cell>
+                    <cell id="656">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="195">
+                            <property name="fontSize">smaller</property>
+                            <property name="resultSetColumn">department</property>
+                        </data>
+                    </cell>
+                    <cell id="192">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="525">
+                            <property name="fontSize">smaller</property>
+                            <property name="resultSetColumn">insurer_company</property>
+                        </data>
+                    </cell>
+                    <cell id="522">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="660">
+                            <property name="fontSize">smaller</property>
+                            <property name="resultSetColumn">insurer_ref</property>
+                        </data>
+                    </cell>
+                    <cell id="113">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="114">
+                            <property name="fontSize">smaller</property>
+                            <property name="resultSetColumn">insuranceclass</property>
+                        </data>
+                    </cell>
+                    <cell id="115">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="116">
+                            <property name="fontSize">smaller</property>
+                            <property name="resultSetColumn">policy_no</property>
+                        </data>
+                    </cell>
+                    <cell id="527">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="531">
+                            <property name="fontSize">smaller</property>
+                            <structure name="dateTimeFormat">
+                                <property name="category">Custom</property>
+                                <property name="pattern">dd-MMM-yyyy</property>
+                            </structure>
+                            <structure name="numberFormat">
+                                <property name="category">Unformatted</property>
+                            </structure>
+                            <property name="resultSetColumn">notificationdate</property>
+                        </data>
+                    </cell>
+                    <cell id="117">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="118">
+                            <property name="fontSize">smaller</property>
+                            <structure name="dateTimeFormat">
+                                <property name="category">Custom</property>
+                                <property name="pattern">dd-MMM-yyyy</property>
+                            </structure>
+                            <structure name="numberFormat">
+                                <property name="category">Unformatted</property>
+                            </structure>
+                            <property name="resultSetColumn">loss_date</property>
+                        </data>
+                    </cell>
+                    <cell id="119">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="120">
+                            <property name="fontSize">smaller</property>
+                            <property name="resultSetColumn">status</property>
+                        </data>
+                    </cell>
+                    <cell id="536">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="539">
+                            <property name="fontSize">smaller</property>
+                            <property name="resultSetColumn">adjuster_firm</property>
+                        </data>
+                    </cell>
+                    <cell id="533">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="541">
+                            <property name="fontSize">smaller</property>
+                            <property name="resultSetColumn">solicitor_firm</property>
+                        </data>
+                    </cell>
+                    <cell id="662">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="665">
+                            <property name="fontSize">smaller</property>
+                            <property name="resultSetColumn">loss_of_type</property>
+                        </data>
+                    </cell>
+                    <cell id="121">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="122">
+                            <property name="fontSize">smaller</property>
+                            <structure name="toc"/>
+                            <property name="resultSetColumn">loss_desc</property>
+                        </data>
+                    </cell>
+                    <cell id="440">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="445">
+                            <property name="fontSize">smaller</property>
+                            <structure name="numberFormat">
+                                <property name="category">Custom</property>
+                                <property name="pattern">#,##0.00</property>
+                            </structure>
+                            <property name="resultSetColumn">reserve_amount</property>
+                        </data>
+                    </cell>
+                    <cell id="123">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="124">
+                            <property name="fontSize">smaller</property>
+                            <structure name="numberFormat">
+                                <property name="category">Custom</property>
+                                <property name="pattern">#,##0.00</property>
+                            </structure>
+                            <property name="resultSetColumn">est_lost_amt</property>
+                        </data>
+                    </cell>
+                    <cell id="125">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="126">
+                            <property name="fontSize">smaller</property>
+                            <structure name="numberFormat">
+                                <property name="category">Custom</property>
+                                <property name="pattern">#,##0.00</property>
+                            </structure>
+                            <structure name="toc"/>
+                            <property name="resultSetColumn">excess_amt</property>
+                        </data>
+                    </cell>
+                    <cell id="127">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="128">
+                            <property name="fontSize">smaller</property>
+                            <structure name="numberFormat">
+                                <property name="category">Custom</property>
+                                <property name="pattern">#,##0.00</property>
+                            </structure>
+                            <property name="resultSetColumn">approval_amt</property>
+                        </data>
+                    </cell>
+                    <cell id="131">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="132">
+                            <property name="fontSize">smaller</property>
+                            <property name="resultSetColumn">remark</property>
+                        </data>
+                    </cell>
+                    <cell id="543">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="579">
+                            <property name="fontSize">smaller</property>
+                            <property name="resultSetColumn">outstanding_doc</property>
+                        </data>
+                    </cell>
+                    <cell id="546">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="583">
+                            <property name="fontSize">smaller</property>
+                            <structure name="dateTimeFormat">
+                                <property name="category">Custom</property>
+                                <property name="pattern">dd-MMM-yyyy</property>
+                            </structure>
+                            <structure name="toc"/>
+                            <property name="resultSetColumn">doc_completion_date</property>
+                        </data>
+                    </cell>
+                    <cell id="552">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="585">
+                            <property name="fontSize">smaller</property>
+                            <structure name="dateTimeFormat">
+                                <property name="category">Custom</property>
+                                <property name="pattern">dd-MMM-yyyy</property>
+                            </structure>
+                            <structure name="toc"/>
+                            <property name="resultSetColumn">adj_final_report_date</property>
+                        </data>
+                    </cell>
+                    <cell id="549">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="587">
+                            <property name="fontSize">smaller</property>
+                            <structure name="dateTimeFormat">
+                                <property name="category">Custom</property>
+                                <property name="pattern">dd-MMM-yyyy</property>
+                            </structure>
+                            <structure name="toc"/>
+                            <property name="resultSetColumn">offer_date</property>
+                        </data>
+                    </cell>
+                    <cell id="576">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="130">
+                            <property name="fontSize">smaller</property>
+                            <structure name="dateTimeFormat">
+                                <property name="category">Custom</property>
+                                <property name="pattern">dd-MMM-yyyy</property>
+                            </structure>
+                            <structure name="toc"/>
+                            <property name="resultSetColumn">paid_date</property>
+                        </data>
+                    </cell>
+                    <cell id="573">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="589">
+                            <property name="fontSize">smaller</property>
+                            <property name="resultSetColumn">p1</property>
+                        </data>
+                    </cell>
+                    <cell id="591">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="617">
+                            <property name="fontSize">smaller</property>
+                            <property name="resultSetColumn">p2</property>
+                        </data>
+                    </cell>
+                    <cell id="597">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="618">
+                            <property name="fontSize">smaller</property>
+                            <property name="resultSetColumn">p3</property>
+                        </data>
+                    </cell>
+                    <cell id="594">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="619">
+                            <property name="fontSize">smaller</property>
+                            <property name="resultSetColumn">p4</property>
+                        </data>
+                    </cell>
+                    <cell id="609">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="620">
+                            <property name="fontSize">smaller</property>
+                            <property name="resultSetColumn">p5</property>
+                        </data>
+                    </cell>
+                    <cell id="606">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="621">
+                            <property name="fontSize">smaller</property>
+                            <property name="resultSetColumn">p6</property>
+                        </data>
+                    </cell>
+                    <cell id="603">
+                        <property name="fontSize">small</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="622">
+                            <property name="fontSize">smaller</property>
+                            <property name="resultSetColumn">p7</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+        </table>
+        <text id="187">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+            <property name="fontWeight">bold</property>
+            <property name="borderBottomStyle">none</property>
+            <property name="borderLeftStyle">none</property>
+            <property name="borderRightStyle">none</property>
+            <property name="borderTopStyle">none</property>
+            <property name="paddingTop">1pt</property>
+            <property name="paddingLeft">1pt</property>
+            <property name="paddingBottom">1pt</property>
+            <property name="paddingRight">1pt</property>
+            <property name="textAlign">center</property>
+            <list-property name="visibility">
+                <structure>
+                    <property name="format">all</property>
+                    <expression name="valueExpr" type="javascript">rowsReturned != 0</expression>
+                </structure>
+            </list-property>
+            <property name="contentType">auto</property>
+            <text-property name="content"><![CDATA[There is no result found.]]></text-property>
+        </text>
+    </body>
+</report>

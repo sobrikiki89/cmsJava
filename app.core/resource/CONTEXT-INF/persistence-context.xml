@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:jee="http://www.springframework.org/schema/jee" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+	http://www.springframework.org/schema/jee 
+	http://www.springframework.org/schema/jee/spring-jee-4.2.xsd    
+    http://www.springframework.org/schema/tx 
+    http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+    ">
+
+	<jee:jndi-lookup id="dataSource" jndi-name="${jdbc.server.datasource}"
+		cache="true" resource-ref="true" lookup-on-startup="true" expected-type="javax.sql.DataSource"/>
+	
+    <!-- Transaction config -->
+    <tx:annotation-driven transaction-manager="transactionManager" />
+    <tx:jta-transaction-manager />
+    
+    <bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager">
+		<property name="transactionManagerName" value="java:jboss/TransactionManager" />
+		<property name="userTransactionName" value="java:jboss/UserTransaction" />
+    </bean>
+    
+	<!-- 
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+    	<property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    -->
+     
+	
+	<bean id="entities" class="app.core.spring.EntitiesFactoryBean" />
+	
+	<bean id="javaAssistClassLoader" class="app.core.hibernate.JavaAssistHelper"
+        factory-method="createJavaAssistClassLoader"/>
+  
+	<bean id="sessionFactory" depends-on="javaAssistClassLoader"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan">
+			<ref bean="entities" />
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>/META-INF/hibernate-orm.xml</value>
+			</list>
+		</property>
+		<property name="entityInterceptor">
+			<bean class="app.core.hibernate.EntityInterceptor" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.default_schema">${hibernate.default_schema}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.order_updates">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+				<prop key="hibernate.transaction.jta.platform">JBossAS</prop>
+				<prop key="hibernate.transaction.coordinator_class">jta</prop>
+				<!--
+				org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform - Integration with the transaction manager as deployed within a JBoss Application Server
+				org.hibernate.service.jta.platform.internal.JBossStandAloneJtaPlatform - Integration with the JBoss Transactions stand-alone transaction manager				
+				org.hibernate.service.jta.platform.internal.WebSphereExtendedJtaPlatform - Integration with transaction manager as deployed in a WebSphere Application Server (6 and above).
+				org.hibernate.service.jta.platform.internal.WebSphereJtaPlatform - Integration with transaction manager as deployed in a WebSphere Application Server (4, 5.0 and 5.1).
+				org.hibernate.service.jta.platform.internal.WeblogicJtaPlatform - Integration with transaction manager as deployed in a Weblogic application server.
+
+				(Bean Managed) hibernate.transaction.factory_class=org.hibernate.transaction.JTATransactionFactory 
+				(Container Managed) hibernate.transaction.factory_class=org.hibernate.transaction.CMTTransactionFactory
+				-->
+			</props>
+		</property>
+	</bean>
+
+	<bean id="defaultJdbc" class="org.springframework.jdbc.core.JdbcTemplate">
+		<constructor-arg ref="dataSource" />
+	</bean>
+</beans>

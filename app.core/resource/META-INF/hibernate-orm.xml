@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://java.sun.com/xml/ns/persistence/orm
+	http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+	version="2.0">
+
+	<table-generator name="entityKeys" table="ENTITY_KEYS"
+		pk-column-name="TableName" value-column-name="next_seq"
+		allocation-size="1" />
+
+	<table-generator name="entityKeys100" table="ENTITY_KEYS_100"
+		pk-column-name="TableName" value-column-name="next_seq"
+		allocation-size="100" />
+
+	<table-generator name="entityKeys500" table="ENTITY_KEYS_500"
+		pk-column-name="TableName" value-column-name="next_seq"
+		allocation-size="500" />
+
+	<table-generator name="entityKeys1000" table="ENTITY_KEYS_1000"
+		pk-column-name="TableName" value-column-name="next_seq"
+		allocation-size="1000" />
+
+</entity-mappings>

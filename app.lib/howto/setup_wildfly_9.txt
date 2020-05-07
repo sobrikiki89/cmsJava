@@ -1,0 +1,145 @@
+========================================================================================
+ Document version 1.0
+ @Author chee seong
+ - Initial draft of the Wildfly (a.k.a. JBoss AS) server installation and configuration
+========================================================================================
+
+A. Wildfly installation 
+--------------------------------------------------------------------------------------------------------
+Download Wildfly 9.0.X final version from wildfly.org website
+http://wildfly.org/downloads/
+
+Extract the archive file that you have just download.
+ 
+NOTE: JDK version 8 is required in order for Wildfly to run
+
+
+B. Configure Oracle JDBC driver in Wildfly server (please make sure you have already setup your Oracle DB)
+--------------------------------------------------------------------------------------------------------
+Step 1. 
+Create a new folder and sub-folder under $WILDFLY_HOME/modules/system/layers/base/
+#> mkdir -p com/oracle/ojdbc6/main
+
+
+Step 2.
+Create a new file called module.xml under folder $WILDFLY_HOME/modules/system/layers/base/com/oracle/ojdbc6/main/
+and paste the following content into that file
+
+--------------------- Copy start here -------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="urn:jboss:module:1.1" name="com.oracle.ojdbc6">
+  <resources>
+    <resource-root path="ojdbc6.jar"/>
+  </resources>
+  <dependencies>
+      <module name="javax.api"/>
+  </dependencies>
+</module>
+----------------------- Copy end here -------------------------
+
+
+Step 3.
+Copy ojdbc6.jar from project folder app.lib/jdbc and paste it to $WILDFLY_HOME/modules/system/layers/base/com/oracle/ojdbc6/main/
+
+
+Step 4.
+Edit file $WILDFLY_HOME/standalone/configuration/standalone.xml
+
+Step 4.1.
+Look for 
+<drivers>
+   <driver name="h2" module="com.h2database.h2">
+      <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
+   </driver>
+</drivers>
+
+Edit it to make it like 
+
+<drivers>
+   <driver name="h2" module="com.h2database.h2">
+      <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
+   </driver>
+   <driver name="oracle" module="com.oracle.ojdbc6">
+      <xa-datasource-class>oracle.jdbc.OracleDriver</xa-datasource-class>
+   </driver>
+</drivers>
+
+Step 4.2
+Look for 
+
+Edit it to make it like
+<datasources>
+   <datasource jndi-name="java:jboss/datasources/ExampleDS" pool-name="ExampleDS" enabled="true" use-java-context="true">
+      <connection-url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</connection-url>
+      <driver>h2</driver>
+      <security>
+         <user-name>sa</user-name>
+         <password>sa</password>
+      </security>
+   </datasource>
+   <datasource jta="true" jndi-name="java:/jdbc/dbo" pool-name="OracleDS" enabled="true" use-java-context="true">
+      <connection-url>jdbc:oracle:thin:@192.168.1.30:1521:SCION</connection-url>
+      <driver-class>oracle.jdbc.OracleDriver</driver-class>
+      <driver>oracle</driver>
+      <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
+      <security>
+         <user-name>dbo</user-name>
+         <password>dbo</password>
+      </security>
+      <validation>
+         <validate-on-match>false</validate-on-match>
+         <background-validation>false</background-validation>
+      </validation>
+      <statement>
+         <share-prepared-statements>false</share-prepared-statements>
+      </statement>
+    </datasource>
+.....
+</datasources>
+
+NOTE: 
+  - JNDI name is "java:/jdbc/dbo", which will then link to "jdbc.server.datasource" that you configure in the app.properties
+  - You have to specify "connection-url" to point to your Oracle DB instance
+  - "user-name" and "password" will be your Oracle DB schema login
+  
+  
+Step 5
+Save the xml file and then you can proceed to deploy and bring up your Wildfly AS
+
+
+C. Configuring Wildfly Logging
+--------------------------------------------------------------------------------------------------------
+Step 1
+Edit file $WILDFLY_HOME/standalone/configuration/standalone.xml and look for the following lines: 
+
+<profile>
+    <subsystem xmlns="urn:jboss:domain:logging:3.0">
+        <console-handler name="CONSOLE">
+            <level name="INFO"/>                         <---- change the log level from INFO to DEBUG 
+            .....
+        <root-logger>
+            <level name="DEBUG"/>                        <---- change the log level from INFO to DEBUG
+            <handlers>
+                <handler name="CONSOLE"/>
+                <handler name="FILE"/>
+            </handlers>
+        </root-logger>
+    </subsystem>
+              
+
+D. Enable hot deploy in Wildfly
+--------------------------------------------------------------------------------------------------------
+Step 1
+Edit file $WILDFLY_HOME/standalone/configuration/standalone.xml and look for the following lines: 
+
+<subsystem xmlns="urn:jboss:domain:deployment-scanner:2.0">
+	<deployment-scanner path="deployments" relative-to="jboss.server.base.dir" scan-interval="5000" runtime-failure-causes-rollback="${jboss.deployment.scanner.rollback.on.failure:false}"/>
+</subsystem>
+
+Update it to by adding auto-deploy-exploded="true" to the deployment-scanner 
+
+<subsystem xmlns="urn:jboss:domain:deployment-scanner:2.0">
+	<deployment-scanner path="deployments" relative-to="jboss.server.base.dir" scan-interval="5000" auto-deploy-exploded="true" runtime-failure-causes-rollback="${jboss.deployment.scanner.rollback.on.failure:false}"/>
+</subsystem>
+
+ 

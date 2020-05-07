@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:p="http://www.springframework.org/schema/p" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   		http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+	   		http://www.springframework.org/schema/context
+	   		http://www.springframework.org/schema/context/spring-context-4.2.xsd
+			http://www.springframework.org/schema/tx 
+			http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+			http://www.springframework.org/schema/mvc 
+			http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+			http://www.springframework.org/schema/task
+			http://www.springframework.org/schema/task/spring-task-4.2.xsd">
+
+	<!-- Index page will be handled by IndexController -->
+	<mvc:view-controller path="/" view-name="redirect:/index.html" />	
+	
+	<!-- Activates various annotations to be detected in bean classes -->
+
+	<context:annotation-config />
+
+	<!-- Scans the classpath for annotated components that will be auto-registered 
+		as Spring beans. For example @Controller and @Service. Make sure to set the 
+		correct base-package -->
+
+	<context:component-scan base-package="web" />
+
+	<!-- Configures the annotation-driven Spring MVC Controller programming 
+		model. Note that, with Spring 3.0, this tag works in Servlet MVC only! -->
+
+	<mvc:annotation-driven>
+		<mvc:argument-resolvers>
+			<bean class="org.springframework.mobile.device.DeviceWebArgumentResolver" />
+			<bean class="org.springframework.mobile.device.site.SitePreferenceWebArgumentResolver" />
+			<bean class="com.github.dandelion.datatables.extras.spring3.ajax.DatatablesCriteriasMethodArgumentResolver" />
+		</mvc:argument-resolvers>
+		<!-- Use the message-converters element to specify the orders of message converters -->		
+		<mvc:message-converters register-defaults="false">
+			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
+			<bean class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter" />
+		</mvc:message-converters>		
+	</mvc:annotation-driven>
+
+	<mvc:interceptors>
+		<bean id="localeChangeInterceptor"
+			class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<property name="paramName" value="lang" />
+		</bean>
+		<bean id="themeChangeInterceptor"
+			class="org.springframework.web.servlet.theme.ThemeChangeInterceptor">
+			<property name="paramName" value="theme" />
+		</bean>
+		<!-- On pre-handle, resolve the device that originated the web request -->
+		<bean
+			class="org.springframework.mobile.device.DeviceResolverHandlerInterceptor" />
+		<!-- On pre-handle, manage the user's site preference (declare after DeviceResolverHandlerInterceptor) -->
+		<bean
+			class="org.springframework.mobile.device.site.SitePreferenceHandlerInterceptor" />
+	</mvc:interceptors>
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
+		up static resources in the ${webappRoot}/resources/ directory -->
+	<mvc:resources location="/resources/" mapping="/resources/**" />
+	<mvc:resources location="classpath:/META-INF/resources/webjars/" mapping="/webjars/**"/>
+	<mvc:resources location="classpath:/META-INF/resources/dandelion/" mapping="/dandelion/**"/>
+
+	<task:annotation-driven />
+
+	<bean id="mailSenderImpl" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="host" value="localhost" />
+		<property name="port" value="25" />
+	</bean>
+
+	<bean id="mailSender" class="web.core.helper.MailSender">
+		<constructor-arg index="0">
+			<ref bean="mailSenderImpl" />
+		</constructor-arg>
+		<constructor-arg index="1">
+			<value>admin@localhost</value>
+		</constructor-arg>
+	</bean>
+
+	<!-- Import security configuration -->
+
+	<import resource="security-context.xml" />
+
+	<!-- Import Tiles-related configuration -->
+
+	<import resource="tiles-context.xml" />
+		
+</beans>

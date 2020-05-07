@@ -1,0 +1,16 @@
+========================================================================================
+ Document version 1.0
+ @Author chee seong
+ - Initial draft of configuring Dropbox as a git server
+========================================================================================
+
+1. Download and install Dropbox client
+
+2. Download and install git client, it is a plus to install UI client as well.
+
+3. create your local workspace folder, e.g. ~/Projects
+   NOTE: DO NOT create your local workspace folder under Dropbox folder. 
+
+4. Run the following command to clone a set of source code from the Dropbox folder.
+cd ~/Projects
+git clone -o portal file://$HOME/Dropbox/portal.git

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="unsecured-template" template="/WEB-INF/jsp/layouts/unsecuredtemplate.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="content" value="" />
+		<put-attribute name="options-modal" value="/WEB-INF/jsp/layouts/optionsmodal.jsp" />
+		<put-attribute name="additional-modal" value="" />
+	</definition>
+
+
+	<definition name="secured-template" template="/WEB-INF/jsp/layouts/securedtemplate.jsp">
+		<put-attribute name="content" value="" />
+		<put-attribute name="options-modal" value="/WEB-INF/jsp/layouts/optionsmodal.jsp" />
+		<put-attribute name="additional-modal" value="" />
+		<put-attribute name="timeout-modal" value="/WEB-INF/jsp/layouts/timeoutmodal.jsp" />		
+	</definition>
+	
+	<definition name="secured.landing" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/landingcontent.jsp" />
+	</definition>
+
+	<definition name="secured.usermgmt.user" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/usermgmt/user/user.jsp" />
+	</definition>
+
+	<definition name="secured.usermgmt.user.new" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/usermgmt/user/usernew.jsp" />
+	</definition>
+	
+	<definition name="secured.usermgmt.user.edit" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/usermgmt/user/useredit.jsp" />
+	</definition>	
+
+	<!-- Change Role and Password -->
+	<definition name="secured.usermgmt.changepasswd" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/usermgmt/user/changepasswd.jsp" />
+	</definition>
+
+	<definition name="secured.usermgmt.changerole" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/usermgmt/role/changerole.jsp" />
+	</definition>
+	
+	<definition name="secured.usermgmt.role" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/usermgmt/role/role.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="secured.usermgmt.role.new" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/usermgmt/role/rolenew.jsp" />
+	</definition>
+	
+	<definition name="secured.usermgmt.role.edit" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/usermgmt/role/roleedit.jsp" />
+	</definition>
+	
+	<!-- Role Function Screen -->
+	<definition name="secured.usermgmt.rolefunction" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/usermgmt/rolefunction/rolefunction.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="secured.usermgmt.rolefunction.new" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/usermgmt/rolefunction/rolefunctionnew.jsp" />
+	</definition>
+	
+	<definition name="secured.usermgmt.rolefunction.edit" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/usermgmt/rolefunction/rolefunctionedit.jsp" />
+	</definition>	
+	
+	<!-- User Company Screen -->
+	<definition name="secured.usermgmt.usercompany" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/usermgmt/usercompany/usercompany.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="secured.usermgmt.usercompany.new" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/usermgmt/usercompany/usercompanynew.jsp" />
+	</definition>
+	
+	<definition name="secured.usermgmt.usercompany.edit" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/usermgmt/usercompany/usercompanyedit.jsp" />
+	</definition>	
+	
+	<!-- Menu Setup Screen -->
+	<definition name="secured.menumgmt.menu" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/menumgmt/menu.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="secured.menumgmt.menu.new" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/menumgmt/menunew.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="secured.menumgmt.menu.edit" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/menumgmt/menuedit.jsp" />
+	</definition>	
+	
+	<!-- Setup Module - Insurer -->
+	<definition name="secured.setup.insurer" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/setup/insurer/insurer.jsp" />
+	</definition>
+
+	<definition name="secured.setup.insurer.new" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/setup/insurer/insurernew.jsp" />
+	</definition>
+
+	<definition name="secured.setup.insurer.edit" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/setup/insurer/insureredit.jsp" />
+	</definition>
+
+	<!-- Setup Module - Insurance Class -->
+	<definition name="secured.setup.insuranceclass" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/setup/insuranceclass/insuranceclass.jsp" />
+	</definition>
+
+	<definition name="secured.setup.insuranceclass.new" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/setup/insuranceclass/insuranceclassnew.jsp" />
+	</definition>
+
+	<definition name="secured.setup.insuranceclass.edit" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/setup/insuranceclass/insuranceclassedit.jsp" />
+	</definition>
+
+	<!-- Setup Module - Type of Loss -->
+	<definition name="secured.setup.losstype" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/setup/losstype/losstype.jsp" />
+	</definition>
+
+	<definition name="secured.setup.losstype.new" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/setup/losstype/losstypenew.jsp" />
+	</definition>
+
+	<definition name="secured.setup.losstype.edit" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/setup/losstype/losstypeedit.jsp" />
+	</definition>
+
+	<!-- Setup Module - Company -->
+	<definition name="secured.setup.company" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/setup/company/company.jsp" />
+	</definition>
+
+	<definition name="secured.setup.company.new" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/setup/company/companynew.jsp" />
+		<put-attribute name="additional-modal" value="/WEB-INF/jsp/secured/setup/company/departmentmodal.jsp" />			
+	</definition>
+
+	<definition name="secured.setup.company.edit" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/setup/company/companyedit.jsp" />
+		<put-attribute name="additional-modal" value="/WEB-INF/jsp/secured/setup/company/departmentmodal.jsp" />			
+	</definition>
+
+	<!-- Setup Module - Solicitor -->
+	<definition name="secured.setup.solicitor" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/setup/solicitor/solicitor.jsp" />
+	</definition>
+
+	<definition name="secured.setup.solicitor.new" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/setup/solicitor/solicitornew.jsp" />
+	</definition>
+
+	<definition name="secured.setup.solicitor.edit" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/setup/solicitor/solicitoredit.jsp" />		
+	</definition>
+
+	<!-- Setup Module - Adjuster -->
+	<definition name="secured.setup.adjuster" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/setup/adjuster/adjuster.jsp" />
+	</definition>
+
+	<definition name="secured.setup.adjuster.new" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/setup/adjuster/adjusternew.jsp" />
+	</definition>
+
+	<definition name="secured.setup.adjuster.edit" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/setup/adjuster/adjusteredit.jsp" />		
+	</definition>
+
+	<!-- Policy Management - Setup -->
+	<definition name="secured.policymgmt.setup" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/policymgmt/setup/policysearch.jsp" />
+	</definition>
+
+	<definition name="secured.policymgmt.setup.new" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/policymgmt/setup/policynew.jsp" />
+	</definition>
+
+	<definition name="secured.policymgmt.setup.edit" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/policymgmt/setup/policyedit.jsp" />
+	</definition>
+	
+	<!-- Claim - Search -->
+	<definition name="secured.claim.search" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/claim/claimsearch.jsp" />
+	</definition>
+
+	<definition name="secured.claim.new.policysearch" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/claim/claimnewpolicysearch.jsp" />
+	</definition>
+
+	<definition name="secured.claim.new" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/claim/claimnew.jsp" />
+	</definition>
+
+	<definition name="secured.claim.edit" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/claim/claimedit.jsp" />
+	</definition>
+
+	<definition name="secured.claim.notification" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/claim/claimnotification.jsp" />
+	</definition>
+	
+	<!-- Report Module -->
+	<definition name="secured.report.access" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/report/reportaccess.jsp" />
+	</definition>
+
+	<definition name="secured.report.access.new" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/report/reportaccessnew.jsp" />
+	</definition>
+
+	<definition name="secured.report.access.edit" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/report/reportaccessedit.jsp" />
+	</definition>
+
+	<definition name="secured.report.submission" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/report/reportsubmission.jsp" />
+		<put-attribute name="additional-modal" value="/WEB-INF/jsp/secured/report/reportdownloadmodal.jsp" />
+	</definition>
+
+	<definition name="secured.report.submission.new" extends="secured-template">
+		<put-attribute name="content" value="/WEB-INF/jsp/secured/report/reportsubmissionnew.jsp" />
+	</definition>
+	
+</tiles-definitions>

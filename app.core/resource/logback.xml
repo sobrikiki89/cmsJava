@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration debug="true">
+
+	<!-- Variable from config properties -->
+	<!-- Change to according to the env -->
+	<property resource="app.properties" />
+
+	<!-- Console Appender -->
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">	
+			<pattern>[%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- Application log file appender -->
+	<appender name="LOGFILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">	
+			<pattern> %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+		<file>${log.dir}/${log.filename}</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<FileNamePattern>${log.dir}/${log.filename}.%i.zip</FileNamePattern>
+			<MinIndex>1</MinIndex>
+			<MaxIndex>10</MaxIndex>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>10MB</MaxFileSize>
+		</triggeringPolicy>
+	</appender>
+
+
+	<logger name="org.springframework" level="WARN" />
+	<logger name="org.springframework.security" level="WARN" />
+	<logger name="org.springframework.web.servlet.i18n" level = "WARN" />
+	<logger name="org.hibernate.type" level="WARN" />
+	<logger name="org.hibernate" level="WARN" />
+	<logger name="com.github.dandelion" level="WARN" />
+	<logger name="app.core.security.auth.CustomListFilter" level="WARN" />
+	
+	<!-- Application log level -->
+	<logger name="app" level="DEBUG" />
+	<logger name="module" level="DEBUG" />
+	<logger name="web" level="DEBUG" />
+
+	<!-- Default log level -->
+	<root level="WARN">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="LOGFILE" />
+	</root>
+
+</configuration>

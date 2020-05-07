@@ -1,0 +1,1205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.7.0.v201706222054</property>
+    <list-property name="userProperties">
+        <structure>
+            <property name="name">Data Cube.ClaimCountByLossType.x</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+        <structure>
+            <property name="name">Data Cube.ClaimCountByLossType.y</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+        <structure>
+            <property name="name">TheCube.ClaimCountByLossType.x</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+        <structure>
+            <property name="name">TheCube.ClaimCountByLossType.y</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+    </list-property>
+    <property name="Data Cube.ClaimCountByLossType.x">135</property>
+    <property name="Data Cube.ClaimCountByLossType.y">80</property>
+    <property name="TheCube.ClaimCountByLossType.x">135</property>
+    <property name="TheCube.ClaimCountByLossType.y">80</property>
+    <property name="units">in</property>
+    <method name="initialize"><![CDATA[rowsReturned=0;]]></method>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="userCompany" id="402">
+            <text-property name="promptText">User Company</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">multi-value</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="companies" id="172">
+            <text-property name="promptText">Company</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">decimal</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">multi-value</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">true</property>
+            <structure name="format">
+                <property name="category">Fixed</property>
+                <property name="pattern">###0{RoundingMode=HALF_UP}</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="fromLossDate" id="173">
+            <text-property name="promptText">From Loss Date</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">dateTime</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Custom</property>
+                <property name="pattern">dd/MM/yyyy HH:mm:ss</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="toLossDate" id="174">
+            <text-property name="promptText">To Loss Date</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">dateTime</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Custom</property>
+                <property name="pattern">dd/MM/yyyy HH:mm:ss</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="REPORT_DATETIME" id="196">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="REPORT_CREATOR" id="197">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dispCompanies" id="390">
+            <text-property name="promptText">dispCompanies</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dispFromLossDate" id="369">
+            <text-property name="promptText">dispFromLossDate</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dispToLossDate" id="370">
+            <text-property name="promptText">dispToLossDate</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="showCompany" id="584">
+            <text-property name="promptText">showCompany</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">boolean</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">False</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">check-box</property>
+            <structure name="format"/>
+        </scalar-parameter>
+        <scalar-parameter name="groupOfInsuranceCode" id="743">
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dispGroupOfInsuranceCode" id="744">
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="insuranceClass" id="746">
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">multi-value</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dispInsuranceClass" id="747">
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="lossTypeCode" id="748">
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">multi-value</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dispLossType" id="749">
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Postgres Data Source" id="4">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">org.postgresql.Driver</property>
+            <property name="odaURL">jdbc:postgresql://localhost:5432/gcms</property>
+            <property name="odaUser">gcms</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">Z2Ntcw==</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="ClaimCountByLossType" id="585">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">company_id</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">company_id</text-property>
+                    <text-property name="heading">company_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">company_code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">company_code</text-property>
+                    <text-property name="heading">company_code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">loss_type</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">loss_type</text-property>
+                    <text-property name="heading">loss_type</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">claim_id</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">claim_id</text-property>
+                    <text-property name="heading">claim_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">loss_date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">loss_date</text-property>
+                    <text-property name="heading">loss_date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">periodremark</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">periodremark</text-property>
+                    <text-property name="heading">periodremark</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">amt_source</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">amt_source</text-property>
+                    <text-property name="heading">amt_source</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">incurred_amnt</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">incurred_amnt</text-property>
+                    <text-property name="heading">incurred_amnt</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">company_id</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">company_code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">loss_type</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">claim_id</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">loss_date</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">periodremark</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">amt_source</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">incurred_amnt</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <method name="beforeOpen"><![CDATA[importPackage( Packages.java.text );
+var sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", reportContext.getLocale());
+
+var qrStr=" (claim.deleted is null or claim.deleted = false) ";
+
+//User Company
+var userCompany = reportContext.getParameterValue("userCompany");
+if( (userCompany != null &amp;&amp; userCompany.length > 0) ){
+	var userCompanyCodes = "";
+	
+	for(var i = 0; i < userCompany.length; i++) {
+		userCompanyCodes += "'" + userCompany[i] + "',";
+	}
+
+	if(userCompanyCodes != "") {
+		userCompanyCodes = userCompanyCodes.substring(0, userCompanyCodes.length - 1);
+	}
+
+	if(qrStr != "") {
+		qrStr += " AND";
+	}
+	qrStr += " company.code IN (" + userCompanyCodes + ")";
+}
+
+// Companies
+var companies = reportContext.getParameterValue("companies");
+if( (companies != null &amp;&amp; companies.length > 0) ){
+	var companyIds = "";
+	
+	for(var i = 0; i < companies.length; i++) {
+		companyIds += companies[i] + ",";
+	}
+
+	if(companyIds != "") {
+		companyIds = companyIds.substring(0, companyIds.length - 1);
+	}
+	
+	if(qrStr != "") {
+		qrStr += " AND";
+	}
+	
+	qrStr += " company.id IN (" + companyIds + ")";
+}
+
+// From Loss Date, To Loss Date
+var fromLossDate = reportContext.getParameterValue("fromLossDate");
+var toLossDate = reportContext.getParameterValue("toLossDate");
+if( (fromLossDate != null &amp;&amp; fromLossDate.value != "" &amp;&amp; toLossDate != null &amp;&amp; toLossDate.value != "") ){
+	if(qrStr != "") {
+		qrStr += " AND";
+	}
+
+	qrStr += " loss_date between to_timestamp('" + sdf.format( fromLossDate ) + "', 'DD-MM-YYYY HH24:MI:SS') and to_timestamp('" + sdf.format( toLossDate ) + "', 'DD-MM-YYYY HH24:MI:SS')";
+}
+else if( (fromLossDate != null &amp;&amp; fromLossDate.value != "" &amp;&amp; (toLossDate == null || toLossDate.value == "") ) ){
+	if(qrStr != "") {
+		qrStr += " AND";
+	}
+
+	qrStr += " loss_date >= to_timestamp('" + sdf.format( fromLossDate ) + "', 'DD-MM-YYYY HH24:MI:SS')";
+}
+else if( ( (fromLossDate == null || fromLossDate.value == "") &amp;&amp; toLossDate != null &amp;&amp; toLossDate.value != "" ) ){
+	if(qrStr != "") {
+		qrStr += " AND";
+	}
+
+	qrStr += " loss_date <= to_timestamp('" + sdf.format( toLossDate ) + "', 'DD-MM-YYYY HH24:MI:SS')";
+}
+
+// Group of Insurance
+var groupOfInsurance = reportContext.getParameterValue("groupOfInsuranceCode");
+if( (groupOfInsurance != null &amp;&amp; groupOfInsurance != "") ){
+	qrStr += " AND insurance_class_category.code = '" + groupOfInsurance + "'";
+}
+
+// Class of Insurance
+var insuranceClass = reportContext.getParameterValue("insuranceClass");
+if( (insuranceClass != null &amp;&amp; insuranceClass.length > 0) ) {
+	var insurerClassCodes = "";
+	for(var i = 0; i < insuranceClass.length; i++) {
+		insurerClassCodes += "'" + insuranceClass[i] + "',";
+	}
+	if(insurerClassCodes != "") {
+	  insurerClassCodes = insurerClassCodes.substring(0, insurerClassCodes.length - 1);
+	}
+	qrStr += " AND insurance_class.code in (" + insurerClassCodes + ")";
+}
+
+// Loss Type
+var lossType = reportContext.getParameterValue("lossTypeCode");
+if( (lossType != null &amp;&amp; lossType.length > 0) ) {
+	var lossTypeCodes = "";
+	for(var i = 0; i < lossType.length; i++) {
+		lossTypeCodes += "'" + lossType[i] + "',";
+	}
+	if(lossTypeCodes != "") {
+	  lossTypeCodes = lossTypeCodes.substring(0, lossTypeCodes.length - 1);
+	}
+	qrStr += " AND loss_type.code in (" + lossTypeCodes + ")";
+}
+
+if (qrStr != "") {
+	qrStr = " WHERE " + qrStr;
+}
+
+this.queryText = this.queryText.replace("extraCond", qrStr);
+Packages.java.lang.System.out.println(queryText);
+]]></method>
+            <method name="onFetch"><![CDATA[rowsReturned++;]]></method>
+            <property name="dataSource">Postgres Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">company_id</property>
+                    <property name="nativeName">company_id</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">company_code</property>
+                    <property name="nativeName">company_code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">loss_type</property>
+                    <property name="nativeName">loss_type</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">claim_id</property>
+                    <property name="nativeName">claim_id</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">loss_date</property>
+                    <property name="nativeName">loss_date</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">periodremark</property>
+                    <property name="nativeName">periodremark</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">amt_source</property>
+                    <property name="nativeName">amt_source</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">incurred_amnt</property>
+                    <property name="nativeName">incurred_amnt</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT  company.id AS company_id, 
+		company.code AS company_code, 
+		UPPER(loss_type.name) as loss_type, 
+		claim.id AS claim_id,
+        claim.loss_date,
+        'No of Cases' as periodRemark,
+        case    when claim.status = 'CPAID' then 'paid'
+                when CLAIM.STATUS IN ('OPN','PDOC','PADJ','PACC','POFR','PPYMT') then 'reserve'
+                else 'not found'
+        end as amt_source,
+        case    when claim.status = 'CPAID' then approval_amt
+                when CLAIM.STATUS IN ('OPN','PDOC','PADJ','PACC','POFR','PPYMT') then COALESCE(reserve_amount,0.00)
+                else 0.00
+        end as incurred_amnt
+FROM claim
+        INNER JOIN policy ON claim.policy_id = policy.id
+        INNER JOIN insurance_class ON insurance_class.code = policy.insurance_class_code
+        INNER JOIN insurance_class_category ON insurance_class_category.code = insurance_class.category
+        INNER JOIN company ON company.id = policy.company_id
+        INNER JOIN loss_type ON loss_type.code = claim.loss_type_code
+extraCond
+ORDER BY company.code, loss_type.code desc
+]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>company_id</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>company_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>company_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>company_code</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>company_code</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>company_code</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>claim_count</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Unknown</design:nullability>
+            <design:uiHints>
+              <design:displayName>claim_count</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>claim_count</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>loss_type</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>2147483647</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Unknown</design:nullability>
+            <design:uiHints>
+              <design:displayName>loss_type</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>loss_type</design:label>
+            <design:formattingHints>
+              <design:displaySize>2147483647</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>loss_date</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+            <design:precision>29</design:precision>
+            <design:scale>6</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>loss_date</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>loss_date</design:label>
+            <design:formattingHints>
+              <design:displaySize>29</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <cubes>
+        <tabular-cube name="Data Cube" id="700">
+            <property name="dimensions">
+                <tabular-dimension name="company" id="701">
+                    <property name="defaultHierarchy">NewTabularHierarchy</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy" id="702">
+                            <property name="levels">
+                                <tabular-level name="company_code" id="703">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">company_code</property>
+                                </tabular-level>
+                                <tabular-level name="loss_type" id="707">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">loss_type</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+                <tabular-dimension name="LossDate" id="704">
+                    <property name="defaultHierarchy">NewTabularHierarchy1</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy1" id="705">
+                            <property name="levels">
+                                <tabular-level name="periodremark" id="706">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">periodremark</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+            </property>
+            <property name="measureGroups">
+                <tabular-measure-group name="Summary Field" id="708">
+                    <property name="measures">
+                        <tabular-measure name="NoOfCases" id="709">
+                            <text-property name="displayName">NoOfCases</text-property>
+                            <property name="function">count</property>
+                            <property name="isCalculated">false</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["claim_id"]</expression>
+                            <property name="dataType">integer</property>
+                            <property name="isVisible">true</property>
+                        </tabular-measure>
+                        <tabular-measure name="incurred_amnt" id="737">
+                            <property name="function">sum</property>
+                            <property name="isCalculated">false</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["incurred_amnt"]</expression>
+                            <property name="dataType">decimal</property>
+                            <property name="isVisible">true</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+            </property>
+            <property name="dataSet">ClaimCountByLossType</property>
+        </tabular-cube>
+    </cubes>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="borderBottomStyle">none</property>
+            <property name="borderLeftStyle">none</property>
+            <property name="borderRightStyle">none</property>
+            <property name="borderTopStyle">none</property>
+            <property name="headerHeight">2.4in</property>
+            <property name="footerHeight">1.3in</property>
+            <page-header>
+                <grid id="446">
+                    <property name="borderBottomStyle">none</property>
+                    <property name="borderLeftStyle">none</property>
+                    <property name="borderRightStyle">none</property>
+                    <property name="borderTopStyle">none</property>
+                    <column id="447"/>
+                    <row id="450">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <cell id="451">
+                            <text-data id="462">
+                                <property name="fontSize">9pt</property>
+                                <expression name="valueExpr">"Report By : " + params["REPORT_CREATOR"].value</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                    </row>
+                    <row id="454">
+                        <cell id="455">
+                            <text-data id="463">
+                                <property name="fontSize">9pt</property>
+                                <expression name="valueExpr">"Report Date : " + params["REPORT_DATETIME"].value</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                    </row>
+                    <row id="468">
+                        <cell id="469">
+                            <text id="470">
+                                <property name="fontSize">12pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="textAlign">center</property>
+                                <property name="contentType">auto</property>
+                                <text-property name="content"><![CDATA[CLAIM BY CAUSE OF INCIDENT]]></text-property>
+                            </text>
+                        </cell>
+                    </row>
+                    <row id="466">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <cell id="467">
+                            <text-data id="473">
+                                <list-property name="visibility">
+                                    <structure>
+                                        <property name="format">all</property>
+                                        <expression name="valueExpr" type="javascript">params["dispFromLossDate"].value == null</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">"Period of insurance : " + params["dispFromLossDate"].value + ( params["dispToLossDate"].value == null ? "NULL" : " to " + params["dispToLossDate"].value)</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                    </row>
+                    <row id="458">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <list-property name="visibility">
+                            <structure>
+                                <property name="format">all</property>
+                                <expression name="valueExpr" type="javascript">params["dispCompanies"].value == null</expression>
+                            </structure>
+                        </list-property>
+                        <cell id="459">
+                            <text-data id="472">
+                                <list-property name="visibility">
+                                    <structure>
+                                        <property name="format">all</property>
+                                        <expression name="valueExpr" type="javascript">params["dispCompanies"].value == null</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">"Company : " + params["dispCompanies"].value</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                    </row>
+                    <row id="464">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <list-property name="visibility">
+                            <structure>
+                                <property name="format">all</property>
+                                <expression name="valueExpr" type="javascript">params["dispLossType"].value == null</expression>
+                            </structure>
+                        </list-property>
+                        <cell id="465">
+                            <text-data id="750">
+                                <expression name="valueExpr">"Loss Type : " + params["dispLossType"].value</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                    </row>
+                    <row id="751">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <list-property name="visibility">
+                            <structure>
+                                <property name="format">all</property>
+                                <expression name="valueExpr" type="javascript">params["dispGroupOfInsuranceCode"].value == null</expression>
+                            </structure>
+                        </list-property>
+                        <cell id="752">
+                            <text-data id="753">
+                                <property name="borderBottomStyle">none</property>
+                                <property name="borderLeftStyle">none</property>
+                                <property name="borderRightStyle">none</property>
+                                <property name="borderTopStyle">none</property>
+                                <expression name="valueExpr">"Group of Insurance : " + params["dispGroupOfInsuranceCode"].value</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                    </row>
+                    <row id="754">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <list-property name="visibility">
+                            <structure>
+                                <property name="format">all</property>
+                                <expression name="valueExpr" type="javascript">params["dispInsuranceClass"].value == null</expression>
+                            </structure>
+                        </list-property>
+                        <cell id="755">
+                            <text-data id="756">
+                                <list-property name="visibility">
+                                    <structure>
+                                        <property name="format">all</property>
+                                        <expression name="valueExpr" type="javascript">true</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">"Class of Insurance : " + params["dispInsuranceClass"].value</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                    </row>
+                </grid>
+            </page-header>
+            <page-footer>
+                <grid id="757">
+                    <column id="758"/>
+                    <row id="759">
+                        <cell id="760"/>
+                    </row>
+                    <row id="761">
+                        <cell id="762">
+                            <text id="765">
+                                <property name="contentType">auto</property>
+                                <text-property name="content"><![CDATA[Note:]]></text-property>
+                            </text>
+                        </cell>
+                    </row>
+                    <row id="763">
+                        <cell id="764">
+                            <text id="766">
+                                <property name="overflow">auto</property>
+                                <property name="contentType">auto</property>
+                                <text-property name="content"><![CDATA[Claim amount incurred = Claim amount paid (when claim status is PAID) + claim reserved amount (when claim status is Open, Pending Document, Pending Adjuster, Pending Acceptance, Pending Offer, Pending Payment)]]></text-property>
+                            </text>
+                        </cell>
+                    </row>
+                    <row id="767">
+                        <cell id="768">
+                            <text id="769">
+                                <property name="contentType">auto</property>
+                                <text-property name="content"><![CDATA[No amount will be calculate when claim status in Closed-Within Policy Excess, Closed-Declined and Closed-Withdrawn]]></text-property>
+                            </text>
+                        </cell>
+                    </row>
+                </grid>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="710">
+            <property name="cube">Data Cube</property>
+            <property name="measures">
+                <extended-item extensionName="MeasureView" id="728">
+                    <property name="measure">NoOfCases</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="729">
+                            <property name="aggregationOnRow">company/loss_type</property>
+                            <property name="aggregationOnColumn">LossDate/periodremark</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="height">0.3333333333333333in</property>
+                            <property name="content">
+                                <data id="730">
+                                    <property name="textAlign">center</property>
+                                    <property name="resultSetColumn">NoOfCases_company/loss_type_LossDate/periodremark</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="731">
+                            <property name="content">
+                                <data name="periodremark" id="727">
+                                    <property name="fontWeight">bold</property>
+                                    <property name="textAlign">center</property>
+                                    <property name="resultSetColumn">periodremark</property>
+                                </data>
+                            </property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="738">
+                    <property name="measure">incurred_amnt</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="739">
+                            <property name="aggregationOnRow">company/loss_type</property>
+                            <property name="aggregationOnColumn">LossDate/periodremark</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="content">
+                                <data id="740">
+                                    <structure name="numberFormat">
+                                        <property name="category">Custom</property>
+                                        <property name="pattern">#,##0.00</property>
+                                    </structure>
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">incurred_amnt_company/loss_type_LossDate/periodremark</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="741">
+                            <property name="content">
+                                <label id="742">
+                                    <property name="fontWeight">bold</property>
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">Incurred Amount (RM)</text-property>
+                                </label>
+                            </property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="rows">
+                <extended-item extensionName="CrosstabView" id="712">
+                    <property name="views">
+                        <extended-item extensionName="DimensionView" id="713">
+                            <property name="dimension">company</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View" id="714">
+                                    <property name="level">company/company_code</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="715">
+                                            <property name="content">
+                                                <data name="company_code" id="716">
+                                                    <property name="resultSetColumn">company_code</property>
+                                                </data>
+                                            </property>
+                                            <property name="borderTopStyle">solid</property>
+                                            <property name="borderTopWidth">thin</property>
+                                            <property name="borderLeftStyle">solid</property>
+                                            <property name="borderLeftWidth">thin</property>
+                                            <property name="borderBottomStyle">solid</property>
+                                            <property name="borderBottomWidth">thin</property>
+                                            <property name="borderRightStyle">solid</property>
+                                            <property name="borderRightWidth">thin</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                                <extended-item extensionName="LevelView" name="NewLevel View1" id="718">
+                                    <property name="level">company/loss_type</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="719">
+                                            <property name="content">
+                                                <data name="loss_type" id="721">
+                                                    <property name="resultSetColumn">loss_type</property>
+                                                </data>
+                                            </property>
+                                            <property name="borderTopStyle">solid</property>
+                                            <property name="borderTopWidth">thin</property>
+                                            <property name="borderLeftStyle">solid</property>
+                                            <property name="borderLeftWidth">thin</property>
+                                            <property name="borderBottomStyle">solid</property>
+                                            <property name="borderBottomWidth">thin</property>
+                                            <property name="borderRightStyle">solid</property>
+                                            <property name="borderRightWidth">thin</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="columns">
+                <extended-item extensionName="CrosstabView" id="723">
+                    <property name="views">
+                        <extended-item extensionName="DimensionView" id="724">
+                            <property name="dimension">LossDate</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View2" id="725">
+                                    <property name="level">LossDate/periodremark</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="726">
+                                            <property name="content">
+                                                <text-data id="736">
+                                                    <property name="fontWeight">bold</property>
+                                                    <property name="textAlign">center</property>
+                                                    <expression name="valueExpr">(params["dispFromLossDate"].value != null ? params["dispFromLossDate"].value  : "") + ( params["dispToLossDate"].value != null ? (" to " + params["dispToLossDate"].value)  : "" )</expression>
+                                                    <property name="contentType">html</property>
+                                                </text-data>
+                                            </property>
+                                            <property name="borderTopStyle">solid</property>
+                                            <property name="borderTopWidth">thin</property>
+                                            <property name="borderLeftStyle">solid</property>
+                                            <property name="borderLeftWidth">thin</property>
+                                            <property name="borderRightStyle">solid</property>
+                                            <property name="borderRightWidth">thin</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="header">
+                <extended-item extensionName="CrosstabCell" id="733">
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="734">
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="711">
+                    <property name="content">
+                        <label id="717">
+                            <property name="fontWeight">bold</property>
+                            <property name="fontStyle">normal</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">COMPANY</text-property>
+                        </label>
+                    </property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="720">
+                    <property name="content">
+                        <label id="722">
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">PERILS</text-property>
+                        </label>
+                    </property>
+                </extended-item>
+            </property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">company_code</property>
+                    <expression name="expression">dimension["company"]["company_code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">loss_type</property>
+                    <expression name="expression">dimension["company"]["loss_type"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">periodremark</property>
+                    <expression name="expression">dimension["LossDate"]["periodremark"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">NoOfCases_company/loss_type_LossDate/periodremark</property>
+                    <text-property name="displayName">NoOfCases</text-property>
+                    <expression name="expression">measure["NoOfCases"]</expression>
+                    <property name="dataType">integer</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>company/loss_type</value>
+                        <value>LossDate/periodremark</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">incurred_amnt_company/loss_type_LossDate/periodremark</property>
+                    <expression name="expression">measure["incurred_amnt"]</expression>
+                    <property name="dataType">decimal</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>company/loss_type</value>
+                        <value>LossDate/periodremark</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+            </list-property>
+        </extended-item>
+    </body>
+</report>
